@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{contar\PYGZus{}frecuencias\PYGZus{}V4}\PYG{p}{(} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{string}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}} \PYG{n}{libro}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{ini}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{fin}\PYG{p}{,}
+                         \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{string}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}}\PYG{n}{pal}\PYG{p}{,} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}} \PYG{n}{frec} \PYG{p}{)\PYGZob{}}
+
+   \PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{string}\PYG{p}{,}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{M}\PYG{p}{;}
+   \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{ini}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{fin}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+      \PYG{n}{M}\PYG{p}{[}\PYG{n}{libro}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]]}\PYG{o}{++}\PYG{p}{;}         \PYG{c+c1}{// O( log(n) )}
+
+   \PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{string}\PYG{p}{,}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}::}\PYG{n}{iterator} \PYG{n}{it}\PYG{p}{;}
+   \PYG{k}{for} \PYG{p}{(}\PYG{n}{it} \PYG{o}{=} \PYG{n}{M}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{();} \PYG{n}{it}\PYG{o}{!=} \PYG{n}{M}\PYG{p}{.}\PYG{n}{end}\PYG{p}{();} \PYG{o}{++} \PYG{n}{it}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{// Bucle O(k log k) siendo k el}
+   					   \PYG{c+c1}{//numero de palabras distintas}
+      \PYG{n}{pal}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(} \PYG{p}{(}\PYG{o}{*}\PYG{n}{it}\PYG{p}{).}\PYG{n}{first} \PYG{p}{);} \PYG{c+c1}{//O(1)}
+      \PYG{n}{frec}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(} \PYG{p}{(}\PYG{o}{*}\PYG{n}{it}\PYG{p}{).}\PYG{n}{second} \PYG{p}{);} \PYG{c+c1}{//O(1)}
+   \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

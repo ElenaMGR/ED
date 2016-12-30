@@ -1,0 +1,13 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Realizar el an\IeC {\'a}lisis de eficiencia cuando consideramos el c\IeC {\'o}digo en ocurrencias.cpp.}{3}{section.1}
+\contentsline {subsection}{\numberline {1.1}Considerando como entrada el texto del fichero quijote.txt.}{3}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Considerando como entrada el texto del fichero lema.txt.}{4}{subsection.1.2}
+\contentsline {section}{\numberline {2}An\IeC {\'a}lisis de eficiencia del c\IeC {\'o}digo en frecuencias.cpp, considerando como entradas el texto del fichero quijote.txt.}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}An\IeC {\'a}lisis de eficiencia del c\IeC {\'o}digo con la estructura de datos de la versi\IeC {\'o}n 1.}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}An\IeC {\'a}lisis de eficiencia del c\IeC {\'o}digo con la estructura de datos de la versi\IeC {\'o}n 2.}{7}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}An\IeC {\'a}lisis de eficiencia del c\IeC {\'o}digo con la estructura de datos de la versi\IeC {\'o}n 3.}{8}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}An\IeC {\'a}lisis de eficiencia del c\IeC {\'o}digo con la estructura de datos de la versi\IeC {\'o}n 4.}{10}{subsection.2.4}
+\contentsline {section}{\numberline {3}Realizar el an\IeC {\'a}lisis de eficiencia te\IeC {\'o}rico y pr\IeC {\'a}ctico con los algoritmos de ordenaci\IeC {\'o}n que se conocen (burbuja, inserci\IeC {\'o}n y selecci\IeC {\'o}n).}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}Burbuja}{11}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Selecci\IeC {\'o}n}{13}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Inserci\IeC {\'o}n}{14}{subsection.3.3}

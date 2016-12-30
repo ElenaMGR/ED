@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{g+go}{gnuplot\PYGZgt{} plot \PYGZsq{}./salidas/ordenacionInsercion.txt\PYGZsq{} title \PYGZsq{}Eficiencia ordenacionInsercion\PYGZsq{}}
+\PYG{g+go}{with points}
+\PYG{g+go}{gnuplot\PYGZgt{} set xlabel \PYGZdq{}Tamanio\PYGZdq{}}
+\PYG{g+go}{gnuplot\PYGZgt{} set ylabel \PYGZdq{}Tiempo (seg)\PYGZdq{}}
+\PYG{g+go}{gnuplot\PYGZgt{} f(x) = a * x * x}
+\PYG{g+go}{gnuplot\PYGZgt{} fit f(x) \PYGZsq{}./salidas/ordenacionInsercion.txt\PYGZsq{} via a}
+
+\PYG{g+go}{Final set of parameters            Asymptotic Standard Error}
+\PYG{g+go}{=======================            ==========================}
+\PYG{g+go}{a               = 2.03009e\PYGZhy{}09      +/\PYGZhy{} 1.219e\PYGZhy{}11    (0.6006\PYGZpc{})}
+
+\PYG{g+go}{gnuplot\PYGZgt{} plot \PYGZsq{}./salidas/ordenacionInsercion.txt\PYGZsq{}, f(x) title \PYGZsq{}Funcion ajustada\PYGZsq{}}
+\end{Verbatim}

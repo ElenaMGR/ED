@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{g+go}{gnuplot\PYGZgt{} plot \PYGZsq{}./salidas/ocurrenciasDicc.txt\PYGZsq{} title \PYGZsq{}Eficiencia ocurrencia Diccionario\PYGZsq{}}
+\PYG{g+go}{with points}
+\PYG{g+go}{gnuplot\PYGZgt{} set xlabel \PYGZdq{}Tamanio\PYGZdq{}}
+\PYG{g+go}{gnuplot\PYGZgt{} set ylabel \PYGZdq{}Tiempo (seg)\PYGZdq{}}
+\PYG{g+go}{gnuplot\PYGZgt{} f(x) = a * x}
+\PYG{g+go}{gnuplot\PYGZgt{} fit f(x) \PYGZsq{}./salidas/ocurrenciasDicc.txt\PYGZsq{} via a}
+
+\PYG{g+go}{Final set of parameters            Asymptotic Standard Error}
+\PYG{g+go}{=======================            ==========================}
+\PYG{g+go}{a               = 1.28826e\PYGZhy{}08      +/\PYGZhy{} 2.827e\PYGZhy{}11    (0.2194\PYGZpc{})}
+
+\PYG{g+go}{gnuplot\PYGZgt{} plot \PYGZsq{}./salidas/ocurrenciasDicc.txt\PYGZsq{}, f(x) title \PYGZsq{}Funcion ajustada\PYGZsq{}}
+\end{Verbatim}

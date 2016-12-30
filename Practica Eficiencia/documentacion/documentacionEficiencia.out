@@ -1,0 +1,12 @@
+\BOOKMARK [1][-]{section.1}{Realizar el an\341lisis de eficiencia cuando consideramos el c\363digo en ocurrencias.cpp.}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Considerando como entrada el texto del fichero quijote.txt.}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Considerando como entrada el texto del fichero lema.txt.}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{An\341lisis de eficiencia del c\363digo en frecuencias.cpp, considerando como entradas el texto del fichero quijote.txt.}{}% 4
+\BOOKMARK [2][-]{subsection.2.1}{An\341lisis de eficiencia del c\363digo con la estructura de datos de la versi\363n 1.}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{An\341lisis de eficiencia del c\363digo con la estructura de datos de la versi\363n 2.}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{An\341lisis de eficiencia del c\363digo con la estructura de datos de la versi\363n 3.}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.4}{An\341lisis de eficiencia del c\363digo con la estructura de datos de la versi\363n 4.}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Realizar el an\341lisis de eficiencia te\363rico y pr\341ctico con los algoritmos de ordenaci\363n que se conocen \(burbuja, inserci\363n y selecci\363n\).}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Burbuja}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Selecci\363n}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.3}{Inserci\363n}{section.3}% 12

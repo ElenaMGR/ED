@@ -1,0 +1,30 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n+nf}{buscar}\PYG{p}{(} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{string}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}} \PYG{n}{V}\PYG{p}{,} \PYG{n}{string} \PYG{o}{\PYGZam{}} \PYG{n}{s}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+   \PYG{k+kt}{bool} \PYG{n}{enc}\PYG{o}{=} \PYG{n+nb}{false}\PYG{p}{;}
+   \PYG{k+kt}{int} \PYG{n}{pos} \PYG{o}{=} \PYG{n}{POS\PYGZus{}NULA}\PYG{p}{;}
+   \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZlt{}} \PYG{n}{V}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{o}{!}\PYG{n}{enc}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{V}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{==}\PYG{n}{s}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+         \PYG{n}{enc} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+         \PYG{n}{pos} \PYG{o}{=} \PYG{n}{i}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+   \PYG{k}{return} \PYG{n}{pos}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+
+\PYG{k+kt}{void} \PYG{n+nf}{contar\PYGZus{}frecuencias\PYGZus{}V2}\PYG{p}{(} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{string}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}} \PYG{n}{libro}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{ini}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{fin}\PYG{p}{,}
+                         \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{string}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}}\PYG{n}{pal}\PYG{p}{,} \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{o}{\PYGZam{}} \PYG{n}{frec} \PYG{p}{)\PYGZob{}}
+   \PYG{k+kt}{int} \PYG{n}{pos}\PYG{p}{;}
+   \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{n}{ini}\PYG{p}{;} \PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{fin}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+
+      \PYG{n}{pos} \PYG{o}{=} \PYG{n}{buscar}\PYG{p}{(}\PYG{n}{pal}\PYG{p}{,} \PYG{n}{libro}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);} \PYG{c+c1}{// O(n)}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{pos}\PYG{o}{==}\PYG{n}{POS\PYGZus{}NULA}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+         \PYG{n}{pal}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{libro}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}    \PYG{c+c1}{// Análisis amortizado O(1)}
+         \PYG{n}{frec}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{);}    \PYG{c+c1}{// Análisis amortizado O(1)}
+      \PYG{p}{\PYGZcb{}}
+      \PYG{k}{else} \PYG{p}{\PYGZob{}}
+         \PYG{n}{frec}\PYG{p}{[}\PYG{n}{pos}\PYG{p}{]}\PYG{o}{++}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+
+   \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

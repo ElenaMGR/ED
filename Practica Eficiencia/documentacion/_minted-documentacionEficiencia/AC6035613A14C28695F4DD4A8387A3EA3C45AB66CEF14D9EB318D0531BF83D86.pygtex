@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{g+go}{gnuplot\PYGZgt{} plot \PYGZsq{}./salidas/frecuenciasV4.txt\PYGZsq{} title \PYGZsq{}Eficiencia frecuenciasV4\PYGZsq{}}
+\PYG{g+go}{with points}
+\PYG{g+go}{gnuplot\PYGZgt{} set xlabel \PYGZdq{}Tamanio\PYGZdq{}}
+\PYG{g+go}{gnuplot\PYGZgt{} set ylabel \PYGZdq{}Tiempo (seg)\PYGZdq{}}
+\PYG{g+go}{gnuplot\PYGZgt{} f(x) = a * x}
+\PYG{g+go}{gnuplot\PYGZgt{} fit f(x) \PYGZsq{}./salidas/frecuenciasV4.txt\PYGZsq{} via a}
+
+\PYG{g+go}{Final set of parameters            Asymptotic Standard Error}
+\PYG{g+go}{=======================            ==========================}
+\PYG{g+go}{a               = 6.71595e\PYGZhy{}07      +/\PYGZhy{} 1.725e\PYGZhy{}09    (0.2569\PYGZpc{})}
+
+\PYG{g+go}{gnuplot\PYGZgt{} plot \PYGZsq{}./salidas/frecuenciasV4.txt\PYGZsq{}, f(x) title \PYGZsq{}Funcion ajustada\PYGZsq{}}
+\end{Verbatim}

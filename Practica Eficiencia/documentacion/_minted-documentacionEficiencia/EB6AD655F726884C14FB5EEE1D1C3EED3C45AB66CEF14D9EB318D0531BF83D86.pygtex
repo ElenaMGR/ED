@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{g+go}{./bin/ocurrencias \PYGZgt{} ./salidas/frecuencias.txt}
+\end{Verbatim}

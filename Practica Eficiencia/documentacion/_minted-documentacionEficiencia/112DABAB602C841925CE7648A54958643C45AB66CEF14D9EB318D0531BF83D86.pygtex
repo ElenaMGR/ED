@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{g+go}{g++ \PYGZhy{}std=c++11 \PYGZhy{}o ./bin/frecuencias ./src/frecuencias.cpp}
+\end{Verbatim}
