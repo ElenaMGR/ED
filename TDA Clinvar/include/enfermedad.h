@@ -13,9 +13,9 @@ using namespace std;
 
 
 //! Clase enfermedad, asociada al TDA enfermedad
-/*! enfermedad::enfermedad, enfermedad::setName, enfermedad::setID, enfermedad::setDatabase, enfermedad::getName,
- * enfermedad::getID, enfermedad::getDatabase, enfermedad::operator=, enfermedad::toString, enfermedad::operator==,
- * enfermedad::operator!=, enfermedad::operator<, enfermedad::nameContains
+/*! Enfermedad::Enfermedad, Enfermedad::setName, Enfermedad::setID, Enfermedad::setDatabase, Enfermedad::getName,
+ * Enfermedad::getID, Enfermedad::getDatabase, Enfermedad::operator=, Enfermedad::toString, Enfermedad::operator==,
+ * Enfermedad::operator!=, Enfermedad::operator<, Enfermedad::nameContains
  * \n Descripción: contiene toda la información asociada a una enfermedad almacenada en la BD ClinVar-dbSNP
  * (nombre de la enfermedad, id, BD que provee el id)
  *

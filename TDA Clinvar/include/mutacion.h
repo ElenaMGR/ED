@@ -12,11 +12,11 @@
 #include <sstream>
 #include "enfermedad.h"
 //! Clase mutacion, asociada a la definición de una mutación/SNP
-/*! mutacion::mutacion, mutacion::setID, mutacion::setChr, mutacion::setPos, mutacion::setRef_alt, mutacion::setGenes,
- * mutacion::setCommon, mutacion::setCaf, mutacion::setEnfermedades, mutacion::setClnsig, mutacion::getID,
- * mutacion::getChr, mutacion::getPos, mutacion::getRef_alt, mutacion::getGenes, mutacion::getCommon,
- * mutacion::getCaf, mutacion::getEnfermedades, mutacion::getClnsig, mutacion::operator=, mutacion::operator==,
- * mutacion::operator<
+/*! Mutacion::Mutacion, Mutacion::setID, Mutacion::setChr, Mutacion::setPos, Mutacion::setRef_alt, Mutacion::setGenes,
+ * Mutacion::setCommon, Mutacion::setCaf, Mutacion::setEnfermedades, Mutacion::setClnsig, Mutacion::getID,
+ * Mutacion::getChr, Mutacion::getPos, Mutacion::getRef_alt, Mutacion::getGenes, Mutacion::getCommon,
+ * Mutacion::getCaf, Mutacion::getEnfermedades, Mutacion::getClnsig, Mutacion::operator=, Mutacion::operator==,
+ * Mutacion::operator<
  * \n Descripción: contiene toda la información asociada a una mutación almacenada en la BD ClinVar-dbSNP
  *
  * @author Elena María Gómez Ríos

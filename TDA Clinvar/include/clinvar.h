@@ -22,6 +22,7 @@ using namespace std;
 
 /** @brief clase ProbMutaciones la cual determinará cuando una mutación es
    * mas probable que otra
+   * @author Elena María Gómez Ríos
 */
 class ProbMutaciones {
    public:
@@ -36,7 +37,12 @@ class ProbMutaciones {
       }
 };
 
-
+/** @brief clase Clinvar
+  * ! Clinvar::load, Clinvar::insert, Clinvar::erase, Clinvar::find_Mut, Clinvar::find_Enf, Clinvar::getEnfermedades,
+  * Clinvar::getMutacionesEnf, Clinvar::getMutacionesGen, Clinvar::topKMutaciones, Clinvar::begin, Clinvar::end,
+  * Clinvar::lower_bound, Clinvar::upper_bound, Clinvar::ebegin, Clinvar::eend, Clinvar::gbegin, Clinvar::gend
+* @author Elena María Gómez Ríos
+*/
 class Clinvar{
    public:
       //los siguientes typedef permiten identificar en las cabeceras de los métodos
@@ -166,13 +172,53 @@ class Clinvar{
       set<Mutacion,ProbMutaciones> topKMutaciones (int k, string keyword);
 
       /* Métodos relacionados con los iteradores */
+      /** @brief Devuelve el iterador correspondiente a la primera mutación según el criterio de ordenación de
+        * cada tipo de elemento.
+        * @return iterator correspondiente a la primera mutación
+      */
       iterator begin();
+
+      /** @brief Devuelve el iterador que apunta al elemento siguiente al último elemento de mutación
+        * @return Devuelve el iterador que apunta al elemento siguiente al último elemento de mutación
+      */
       iterator end();
+
+      /** @brief Método que permiten hacer la búsqueda por rango considerando el par de valores cromosoma/posición.
+        * @param[in] posicion parámetro por el que se compara la mutación
+        * @param[in] cromosoma parámetro por el que se compara la mutación
+        * @return devuelve el iterador que apunta a la primera mutación que es mayor o igual a los parámetros dados
+        * en la entrada
+      */
       iterator lower_bound(string cromosoma, unsigned int posicion);
+
+      /** @brief Método que permiten hacer la búsqueda por rango considerando el par de valores cromosoma/posición.
+        * @param[in] posicion parámetro por el que se compara la mutación
+        * @param[in] cromosoma parámetro por el que se compara la mutación
+        * @return devuelve el iterador que apunta a la primera mutación que es estrictamente mayor a los parámetros dados
+        * en la entrada
+      */
       iterator upper_bound(string cromosoma, unsigned int posicion);
+
+      /** @brief Devuelve el iterador correspondiente a la primera enfermedad según el criterio de ordenación de
+        * cada tipo de elemento.
+        * @return iterator correspondiente a la primera enfermedad
+      */
       enfermedad_iterator ebegin();
+
+      /** @brief Devuelve el iterador que apunta al elemento siguiente al último elemento de enfermedad
+        * @return Devuelve el iterador que apunta al elemento siguiente al último elemento de enfermedad
+      */
       enfermedad_iterator eend();
+
+      /** @brief Devuelve el iterador correspondiente a la primera gen según el criterio de ordenación de
+        * cada tipo de elemento.
+        * @return iterator correspondiente al primer gen
+      */
       gen_iterator gbegin();
+
+      /** @brief Devuelve el iterador que apunta al elemento siguiente al último elemento de gen
+        * @return Devuelve el iterador que apunta al elemento siguiente al último elemento de gen
+      */
       gen_iterator gend();
 
    private:
