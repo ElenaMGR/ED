@@ -67,38 +67,84 @@ Nmer & Nmer::operator=(const Nmer & a){
 }
 
 Nmer Nmer::Prefix(string adn){
-   Nmer salida;
+   Nmer resultado;
+   Nmer subarbol;
    ktree<pair<char,int>,4>::node n(el_Nmer.root());
+   ktree<pair<char,int>,4>::node n2(resultado.el_Nmer.root());
+   pair<char,int> etiqueta;
+   int hijo;
+
    for(unsigned int i=0; i<adn.size(); i++){
-      if(adn[i]=='A'){
-         n=n.k_child(0);
+      switch (adn[i]) {
+         case 'A': n = n.k_child(0); hijo=0; break;
+         case 'G': n = n.k_child(1); hijo=1; break;
+         case 'C': n = n.k_child(2); hijo=2; break;
+         case 'T': n = n.k_child(3); hijo=3; break;
       }
-      if(adn[i]=='G'){
-         n=n.k_child(1);
-      }
-      if(adn[i]=='C'){
-         n=n.k_child(2);
-      }
-      if(adn[i]=='T'){
-         n=n.k_child(3);
-      }
+
+      etiqueta.first=adn[i];
+      etiqueta.second=(*n).second;
+      resultado.el_Nmer.insert_k_child(n2,hijo,etiqueta);
+      n2 = n2.k_child(hijo);
+
       if(n.null()){
          i=adn.size();
       }
    }
 
    if(!n.null()){
-      salida.el_Nmer.assing(el_Nmer, n);
+      subarbol.el_Nmer.assing(el_Nmer, n);
    }
 
-   return (salida);
+   resultado.el_Nmer.insert_k_child(n2.parent(),hijo,subarbol.el_Nmer);
+
+   return resultado;
 }
 
-/*
+Nmer Nmer::Union(const Nmer reference){
+   Nmer resultado(*this);
+   Nmer referencia(reference);
+   resultado.recorridoUnion(referencia, resultado.el_Nmer.root(), referencia.el_Nmer.root());
+   return resultado;
+}
+
+bool Nmer::containsString(const string adn) const{
+   bool esta=false;
+   ktree<pair<char,int>,4>::const_node n(el_Nmer.root());
+
+   for(unsigned int i=0; i<adn.size(); i++){
+      switch (adn[i]) {
+         case 'A': n = n.k_child(0); break;
+         case 'G': n = n.k_child(1); break;
+         case 'C': n = n.k_child(2); break;
+         case 'T': n = n.k_child(3); break;
+      }
+
+      if(n.null()){
+         i=adn.size();
+      }
+   }
+
+   if(!n.null()){
+      esta=true;
+   }
+
+   return esta;
+}
+
+
+bool Nmer::included(const Nmer reference) const{
+   return recorridoInclude(el_Nmer.root(), reference.el_Nmer.root());
+}
+
+
 void Nmer::sequenceADN(unsigned int tama, const string & adn){
-
+   //Inicializamos el árbol poniendo la etiqueta (’-’,0) en el nodo raíz
+   //Para cada uno de las posiciones, i, de la cadena
+   //Obtenemos un substring de tamaño tama que empiece en adn[i];
+   //insertar_cadena(subcadena);
 }
-
+/*
 set<pair<string,int>,OrdenCre > Nmer::rareNmer(int threshold){
 
 }
@@ -137,4 +183,43 @@ void Nmer::recorrido_preorden (ktree<pair<char,int>,4>::const_node n, string & c
       }
       contenido.pop_back();
    }
+}
+
+void Nmer::recorridoUnion(Nmer arbol2, ktree<pair<char,int>,4>::node nodoArbol1, ktree<pair<char,int>,4>::node nodoArbol2) {
+   Nmer subarbol;
+   for(int i=0; i<4; i++){
+
+      if (!nodoArbol2.k_child(i).null()){
+         if (!nodoArbol1.k_child(i).null()){
+            //Si el nodo hijo i no es nulo en ninguno de los 2 árboles
+            (*nodoArbol1.k_child(i)).second += (*nodoArbol2.k_child(i)).second;
+            recorridoUnion(arbol2, nodoArbol1.k_child(i), nodoArbol2.k_child(i));
+         }
+         else {
+            //Si el nodo hijo i del segundo árbol no es nulo, pero el del árbol1 si
+            //Copio el subarbol del arbol 2 en arbol1
+            subarbol.el_Nmer.assing(arbol2.el_Nmer, nodoArbol2.k_child(i));
+            el_Nmer.insert_k_child(nodoArbol1,i,subarbol.el_Nmer);
+         }
+      }
+   }
+}
+
+
+bool Nmer::recorridoInclude(ktree<pair<char,int>,4>::const_node nodoThis, ktree<pair<char,int>,4>::const_node nodoRef) const {
+   for(int i=0; i<4; i++){
+      if (!nodoThis.k_child(i).null()){
+         if (!nodoRef.k_child(i).null()){
+            return recorridoInclude(nodoThis.k_child(i), nodoRef.k_child(i));
+         }
+         else {
+            return false;
+         }
+      }
+   }
+   return true;
+}
+
+void Nmer::insertar_cadena(const string & cadena){
+
 }

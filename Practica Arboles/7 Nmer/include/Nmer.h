@@ -106,12 +106,20 @@ class Nmer {
       */
       void recorrido_preorden (ktree<pair<char,int>,4>::const_node n, string & contenido) const;
 
+      /** @brief Recorre dos árboles y hace la unión de ambos
+      */
+      void recorridoUnion(Nmer arbol2, ktree<pair<char,int>,4>::node nodoArbol1, ktree<pair<char,int>,4>::node nodoArbol2);
 
+      bool recorridoInclude(ktree<pair<char,int>,4>::const_node nodoThis, ktree<pair<char,int>,4>::const_node nodoRef) const;
 
 
    private:
      ktree<pair<char,int>,4> el_Nmer; // subsecuencias
      unsigned int max_long; // Mayor longitud de la cadena representada, esto es, el nivel máximo del árbol
+
+     /** @brief Inserta la cadena en el arbol
+     */
+     void insertar_cadena(const string & cadena);
 
      /** @brief Functor para convertir un string en un pair<char,int>
       * se utiliza en loadSerialized

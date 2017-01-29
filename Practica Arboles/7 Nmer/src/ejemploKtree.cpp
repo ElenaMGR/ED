@@ -286,7 +286,7 @@ int main(){
    cout << prueba.size() << " " << prueba.length() << endl;
 
    Nmer prueba2;
-   prueba2 = prueba.Prefix("A");
+   prueba2 = prueba.Prefix("AT");
    prueba2.list_Nmer();
 
    return 0;
