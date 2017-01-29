@@ -40,6 +40,15 @@ class Nmer {
       */
      bool loadSerialized(const string & nombre_fichero);
 
+     /** @brief lectura fichero
+      * @param nombre_fichero fichero con extension .txt
+      *
+      * Genera a partir del fichero el ktree que contiene todos los kmers asociados a una cadena de ADN
+      *
+      * La cadena original viene descrita en el fichero
+      */
+     bool loadFichero(const string & nombre_fichero);
+
 
      /** @brief Imprime los Nmers
       * @todo Debemos de implementar este método de forma que nos garantizemos que se imprimen todos los Nmers.

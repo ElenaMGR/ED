@@ -42,6 +42,26 @@ bool Nmer::loadSerialized(const string & fichero) {
    return false;
 }
 
+bool Nmer::loadFichero(const string & nombre_fichero){
+   string cadena;
+   ifstream fe;
+
+   fe.open(nombre_fichero.c_str(), ifstream::in);
+   if (fe.fail()){
+      cerr << "Error al abrir el fichero " << nombre_fichero << endl;
+   }
+   else {
+      // leemos cadena
+      getline(fe,cadena,'\n');
+      transform(cadena.begin(),cadena.end(),cadena.begin(), ::toupper);
+      sequenceADN(10,cadena);
+      fe.close();
+      return true;
+   } // else
+   fe.close();
+   return false;
+}
+
 void Nmer::list_Nmer() const {
    // implmenentar el recorrido en preorden para el ktree de forma que nos devuelva los Nmers completos y no
    // sólo el nodo.
@@ -139,11 +159,56 @@ bool Nmer::included(const Nmer reference) const{
 
 
 void Nmer::sequenceADN(unsigned int tama, const string & adn){
+   string subcadena="";
    //Inicializamos el árbol poniendo la etiqueta (’-’,0) en el nodo raíz
+   el_Nmer.clear();
+   el_Nmer = ktree<pair<char,int>,4> (pair<char,int>('-',0));
+   max_long=tama;
    //Para cada uno de las posiciones, i, de la cadena
-   //Obtenemos un substring de tamaño tama que empiece en adn[i];
-   //insertar_cadena(subcadena);
+   for (unsigned int i=0; i< adn.size(); i++){
+      //Obtenemos un substring de tamaño tama que empiece en adn[i];
+      subcadena = adn.substr(i,tama);
+      insertar_cadena(subcadena);
+   }
 }
+
+
+void Nmer::insertar_cadena(const string & cadena){
+   int hijo;
+   pair<char,int> etiqueta;
+   //posicionamos un nodo, n_act, en la raiz del arbol.
+   ktree<pair<char,int>,4>::node n_act=el_Nmer.root();
+   //Este nodo n lo utilizamos para descender por el arbol
+   // cadena[i] nos indica el índice del nodo en el nivel i+1;
+   // A -> hijo 0; G -> hijo 1; C-> hijo 2; T-> hijo 3
+   //Para cada uno de los caracteres, i, de la cadena
+   for (unsigned int i = 0; i<cadena.size(); i++){
+      //cadena[i] nos indica el índice del nodo en el nivel i+1;
+      // si cadena[i] es : A -> hijo 0; G -> hijo 1; C-> hijo 2; T-> hijo 3
+      switch (cadena[i]) {
+         case 'A': hijo=0; break;
+         case 'G': hijo=1; break;
+         case 'C': hijo=2; break;
+         case 'T': hijo=3; break;
+      }
+      //si n_act tiene hijo en la posición dada por cadena[i]  // Ya esta insertado el nodo
+      if (!n_act.k_child(hijo).null()){
+         //incrementamos el contador en 1;
+         (*n_act.k_child(hijo)).second ++;
+      }else{
+      //en caso contrario  // No esta insertado el nodo
+         //insertamos el nuevo nodo en dicha posición con etiqueda cadena[i] y su contador a 1;
+         etiqueta.first=cadena[i];
+         etiqueta.second=1;
+         el_Nmer.insert_k_child(n_act,hijo,etiqueta);
+      }
+      //descendemos en el árbol, haciendo que n_act sea el nodo que representa cadena[i], esto es bajamos al
+      //hijo correspondiente;
+      n_act = n_act.k_child(hijo);
+   }
+}
+
+
 /*
 set<pair<string,int>,OrdenCre > Nmer::rareNmer(int threshold){
 
@@ -218,8 +283,4 @@ bool Nmer::recorridoInclude(ktree<pair<char,int>,4>::const_node nodoThis, ktree<
       }
    }
    return true;
-}
-
-void Nmer::insertar_cadena(const string & cadena){
-
 }

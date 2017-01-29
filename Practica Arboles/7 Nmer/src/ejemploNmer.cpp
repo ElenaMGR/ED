@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
    Nmer prueba;
-   prueba.loadSerialized("../datos/cadenaSimple.srl");
+   /*prueba.loadSerialized("../datos/cadenaSimple.srl");
    prueba.list_Nmer();
    cout << prueba.size() << " " << prueba.length() << endl;
 
@@ -35,6 +35,15 @@ int main(){
       cout<<"Incluido"<<endl;
    else
       cout<<"No incluido"<<endl;
+
+   cout<<"sequenceADN"<<endl;
+   prueba.sequenceADN(4,"ACTAGCGGATCT");*/
+
+   cout<<"leemos desde le fichero"<<endl;
+   prueba.loadFichero("../datos/1.txt");
+   prueba.list_Nmer();
+   cout << prueba.size() << " " << prueba.length() << endl;
+
 
    return 0;
 }
