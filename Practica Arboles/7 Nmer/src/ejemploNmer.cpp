@@ -6,7 +6,7 @@ using namespace std;
 
 int main(){
    Nmer prueba;
-   /*prueba.loadSerialized("../datos/cadenaSimple.srl");
+   prueba.loadSerialized("../datos/cadenaSimple.srl");
    prueba.list_Nmer();
    cout << prueba.size() << " " << prueba.length() << endl;
 
@@ -37,12 +37,44 @@ int main(){
       cout<<"No incluido"<<endl;
 
    cout<<"sequenceADN"<<endl;
-   prueba.sequenceADN(4,"ACTAGCGGATCT");*/
+   prueba.sequenceADN(4,"ACTAGCGGATCT");
+
+   cout<<"rareNmer"<<endl;
+   prueba.loadSerialized("../datos/cadenaSimple.srl");
+   set<pair<string,int>,OrdenCre> res = prueba.rareNmer(2);
+   set<pair<string,int>,OrdenCre>::iterator it = res.begin();
+   while (it != res.end()){
+      cout<<(*it).first<<" ";
+      cout<<(*it).second<<endl;
+      it++;
+   }
+   cout<<res.size()<<endl;
+
+   cout<<"commonNmer"<<endl;
+   set<pair<string,int>,OrdenDecre> res2 = prueba.commonNmer(3);
+   set<pair<string,int>,OrdenDecre>::iterator it2 = res2.begin();
+   while (it2 != res2.end()){
+      cout<<(*it2).first<<" ";
+      cout<<(*it2).second<<endl;
+      it2++;
+   }
+   cout<<res2.size()<<endl;
+
+   cout<<"level"<<endl;
+   res = prueba.level(2);
+   it = res.begin();
+   while (it != res.end()){
+      cout<<(*it).first<<" ";
+      cout<<(*it).second<<endl;
+      it++;
+   }
+   cout<<res.size()<<endl;
 
    cout<<"leemos desde le fichero"<<endl;
    prueba.loadFichero("../datos/1.txt");
-   prueba.list_Nmer();
-   cout << prueba.size() << " " << prueba.length() << endl;
+   //prueba.list_Nmer();
+   //cout << prueba.size() << " " << prueba.length() << endl;
+
 
 
    return 0;

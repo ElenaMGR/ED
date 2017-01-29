@@ -209,23 +209,102 @@ void Nmer::insertar_cadena(const string & cadena){
 }
 
 
-/*
+
 set<pair<string,int>,OrdenCre > Nmer::rareNmer(int threshold){
-
+   string cadena = "";
+   set<pair<string,int>,OrdenCre> resultado;
+   recorridoRareNmer(el_Nmer.root(),threshold,resultado, cadena);
+   return resultado;
 }
 
-set<pair<string,int>,ordenDecre > Nmer::commonNmer(int threshold){
+void Nmer::recorridoRareNmer(ktree<pair<char,int>,4>::const_node nodo, int threshold,set<pair<string,int>,OrdenCre> &resultado, string & subcadena){
+   if (!nodo.null()){
+      subcadena.push_back((*nodo).first);
+      if (subcadena.back()=='-'){
+         subcadena.pop_back();
+      }
+      if(nodo.k_child(0).null() && nodo.k_child(1).null() && nodo.k_child(2).null() && nodo.k_child(3).null()){
+         if((*nodo).second<=threshold){
+            resultado.insert(pair<string,int> (subcadena, (*nodo).second));
+         }
+      }
 
+      ktree<pair<char,int>,4>::const_node::child_iterator ini = nodo.begin();
+      ktree<pair<char,int>,4>::const_node::child_iterator fin = nodo.end();
+      while (ini!=fin){
+         recorridoRareNmer((*ini),threshold,resultado, subcadena);
+         ++ini;
+      }
+      subcadena.pop_back();
+   }
 }
 
-set<pair<string,int>, ordenCrec > Nmer::level(int l){
 
+set<pair<string,int>,OrdenDecre > Nmer::commonNmer(int threshold){
+   string cadena = "";
+   set<pair<string,int>,OrdenDecre> resultado;
+   recorridoCommonNmer(el_Nmer.root(),threshold,resultado, cadena);
+   return resultado;
+}
+
+void Nmer::recorridoCommonNmer(ktree<pair<char,int>,4>::const_node nodo, int threshold,set<pair<string,int>,OrdenDecre> &resultado, string & subcadena){
+   if ((!nodo.null() && (*nodo).second>threshold  ) || nodo==el_Nmer.root() ){
+      subcadena.push_back((*nodo).first);
+      if (subcadena.back()=='-'){
+         subcadena.pop_back();
+      }
+
+      if( ( nodo.k_child(0).null() || (*nodo.k_child(0)).second <= threshold) &&
+         ( nodo.k_child(1).null() || (*nodo.k_child(1)).second <= threshold) &&
+         ( nodo.k_child(2).null() || (*nodo.k_child(2)).second <= threshold) &&
+         ( nodo.k_child(3).null() || (*nodo.k_child(3)).second <= threshold) ){
+
+         resultado.insert(pair<string,int> (subcadena, (*nodo).second));
+
+      }
+
+      ktree<pair<char,int>,4>::const_node::child_iterator ini = nodo.begin();
+      ktree<pair<char,int>,4>::const_node::child_iterator fin = nodo.end();
+      while (ini!=fin){
+         recorridoCommonNmer((*ini),threshold,resultado, subcadena);
+         ++ini;
+      }
+      subcadena.pop_back();
+   }
+}
+
+
+set<pair<string,int>, OrdenCre > Nmer::level(int l){
+   string cadena = "";
+   set<pair<string,int>,OrdenCre> resultado;
+   recorridoLevel(el_Nmer.root(),l ,resultado, cadena);
+   return resultado;
+}
+
+void Nmer::recorridoLevel(ktree<pair<char,int>,4>::const_node nodo, int level,set<pair<string,int>,OrdenCre> &resultado, string & subcadena){
+   if (!nodo.null() && level >=0 ){
+      subcadena.push_back((*nodo).first);
+      if (subcadena.back()=='-'){
+         subcadena.pop_back();
+      }
+      if(level==0){
+         resultado.insert(pair<string,int> (subcadena, (*nodo).second));
+      }
+
+      ktree<pair<char,int>,4>::const_node::child_iterator ini = nodo.begin();
+      ktree<pair<char,int>,4>::const_node::child_iterator fin = nodo.end();
+      while (ini!=fin){
+         recorridoLevel((*ini),level-1,resultado, subcadena);
+         ++ini;
+      }
+      subcadena.pop_back();
+   }
 }
 
 float Nmer::Distance(const Nmer & x){
 
 }
-*/
+
 
 ostream&   operator<<(ostream & s, const pair<char,int> & par){
   s << par.first << " " << par.second;

@@ -16,6 +16,34 @@
 #include <algorithm>
 
 using namespace std;
+/** @brief clase OrdenCre la ordena en orden creciente por la frecuencia
+*/
+class OrdenCre {
+  public:
+     /** @brief compara dos subcadenas por la frecuencia de forma creciente
+       * @param[in] n: pair a comparar.
+       * @param[in] n2: pair a comparar.
+       * @return true si n tiene menor frecuencia que n2
+       * @post no modifica el conjunto.
+      */
+      bool operator()(const pair<string,int> & n ,const pair<string,int> & n2) {
+          return (n.second <= n2.second);
+      }
+};
+/** @brief clase OrdenDecre la ordena en orden creciente por la frecuencia
+*/
+class OrdenDecre {
+  public:
+     /** @brief compara dos subcadenas por la frecuencia de forma decreciente
+       * @param[in] n: pair a comparar.
+       * @param[in] n2: pair a comparar.
+       * @return true si n tiene mayor frecuencia que n2
+       * @post no modifica el conjunto.
+      */
+      bool operator()(const pair<string,int> & n ,const pair<string,int> & n2) {
+          return (n.second >= n2.second);
+      }
+};
 
 class Nmer {
    public:
@@ -96,16 +124,16 @@ class Nmer {
       /** @brief devuelve la lista de todas las subcadenas (no prefijo) que aparecen menos de threshold
         * veces en el Nmer ordenadas en orden creciente de frecuencia
         */
-      //set<pair<string,int>,OrdenCre > rareNmer(int threshold);
+      set<pair<string,int>,OrdenCre > rareNmer(int threshold);
 
       /** @brief Devuelve la lista de las cadenas de longitud mayor posible (no prefijo) que aparecen más
         * de threshold veces en el Nmer, ordenadas en orden decreciente de frecuencia
       */
-      //set<pair<string,int>,ordenDecre > commonNmer(int threshold);
+      set<pair<string,int>,OrdenDecre > commonNmer(int threshold);
 
       /** @brief Devuelve el conjunto de Nmers de longitud exacta l.
       */
-      //set<pair<string,int>, ordenCrec > level(int l);
+      set<pair<string,int>, OrdenCre > level(int l);
 
       /** @brief Distancia entre dos Nmer
       */
@@ -121,7 +149,11 @@ class Nmer {
 
       bool recorridoInclude(ktree<pair<char,int>,4>::const_node nodoThis, ktree<pair<char,int>,4>::const_node nodoRef) const;
 
+      void recorridoRareNmer(ktree<pair<char,int>,4>::const_node nodo, int threshold,set<pair<string,int>,OrdenCre> &resultado, string & subcadena);
 
+      void recorridoCommonNmer(ktree<pair<char,int>,4>::const_node nodo, int threshold,set<pair<string,int>,OrdenDecre> &resultado, string & subcadena);
+
+      void recorridoLevel(ktree<pair<char,int>,4>::const_node nodo, int level,set<pair<string,int>,OrdenCre> &resultado, string & subcadena);
    private:
      ktree<pair<char,int>,4> el_Nmer; // subsecuencias
      unsigned int max_long; // Mayor longitud de la cadena representada, esto es, el nivel máximo del árbol
@@ -153,6 +185,7 @@ class Nmer {
           return salida;
         }
      };
+
 };
 
 ostream& operator<<(ostream & s, const pair<char,int> & par);
