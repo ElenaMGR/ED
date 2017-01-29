@@ -138,9 +138,11 @@ public:
   /**
      @brief Insertar un árbol como hijo k-ésimo  de un nodo.
 
-     @param n: nodo del receptor. n != nodo_nulo.
-     @param k: número de hijo de n
-     @param rama: subárbol que se inserta. Es MODIFICADO quedando como árbol vacío tras la inserción-
+     @param[in] n: nodo del receptor. n != nodo_nulo.
+     @param[in] k: número de hijo de n
+     @param[in,out] rama: subárbol que se inserta. Es MODIFICADO quedando como árbol vacío tras la inserción-
+
+     @pre n no puede ser nulo
 
      Inserta la rama como subárbol en la posición k-ésima del nodo n. Si hubiese un subárbol en esa posición lo destruye. Además, rama se hace árbol nulo.
   */
@@ -224,10 +226,10 @@ public:
    /**
      @brief Reconstruye el árbol a partir de una serialización válida.
  
-     @param ser cadena que representa la serialización
-     @param valor_nulo valor nulo para el parámetro de tipo T
-     @param delim delimitar utilizado para separar valores en el árbol
-     @param St2T functor que recibe un string, s, y lo convierte en un valor de tipo T correcto. 
+     @param[in] ser cadena que representa la serialización
+     @param[in] valor_nulo valor nulo para el parámetro de tipo T
+     @param[in] delim delimitar utilizado para separar valores en el árbol
+     @param[in] St2T functor que recibe un string, s, y lo convierte en un valor de tipo T correcto. 
      @pre el string ser ha sido obtenido mediante el proceso serialize(valor_nulo,delim,T2Str)
      @pre Str2T es el proceso inverso de T2Str
      

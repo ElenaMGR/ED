@@ -1,16 +1,19 @@
-
 /**
  * @file Nmer.h
  * @brief TDA Nmer
- *   Representa un conjunto de Nmer subsecuencias de tamaño 1 hasta N que se pueden obtener a partir de una cadena de ADN
+ *   Representa un conjunto de Nmer subsecuencias de tamaño 1 hasta N que se pueden obtener a partir de una cadena
+ *   de ADN
  * @author Elena María Gómez Ríos
- * @bug Por espeficicar
  */
+
 #ifndef __NMER_H
 #define __NMER_H
 
 #include "ktree.h"
+#include <set>
 #include <string>
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -22,6 +25,11 @@ class Nmer {
          Crea un Nmer de longitud maxima 0, con el valor ('-',0) en la raíz
      */
      Nmer();
+
+     /** @brief Constructor .
+         Crea un Nmer igual al Nmer pasado
+     */
+     Nmer(const Nmer & a);
 
      /** @brief lectura fichero serializado
       * @param nombre_fichero fichero serializado con extension .srl
@@ -48,6 +56,30 @@ class Nmer {
       */
       size_type size() const;
 
+      /** @brief operador de asignacion
+      */
+      Nmer & operator=(const Nmer & a);
+
+      /** @brief Devuelve el Nmer (subarbol) asociado a un prefijo. Por ejemplo, si adn es
+        * "ACT", devuelve el Nmer que representa todas las subcadenas que empiezan por "ACT" (ACT*)
+      */
+      Nmer Prefix(string adn);
+
+      /** @brief Se devuelve un Nmer donde para cada nodo (representa una
+        * secuencia) se computa la suma de las frecuencias en *this y en referencia
+      */
+      Nmer Union(const Nmer reference);
+
+      /** @brief Devuelve true si la cadena adn está representada en el árbol.
+      */
+      bool containsString(const string adn) const;
+
+      /** @brief Devuelve true si cada nodo de *this está también representado en reference, es decir,
+        * si todas las secuencias representadas en el árbol de *this están también incluidas en reference.
+        * False en otro caso.
+      */
+      bool included(const Nmer reference) const;
+
       /** @brief Construir Nme a partir de cadena de ADN
       */
       void sequenceADN(unsigned int tama, const string & adn);
@@ -55,20 +87,27 @@ class Nmer {
       /** @brief devuelve la lista de todas las subcadenas (no prefijo) que aparecen menos de threshold
         * veces en el Nmer ordenadas en orden creciente de frecuencia
         */
-      set<pair<string,int>,OrdenCre > rareNmer(int threshold);
+      //set<pair<string,int>,OrdenCre > rareNmer(int threshold);
 
       /** @brief Devuelve la lista de las cadenas de longitud mayor posible (no prefijo) que aparecen más
         * de threshold veces en el Nmer, ordenadas en orden decreciente de frecuencia
       */
-      set<pair<string,int>,ordenDecre > commonNmer(int threshold);
+      //set<pair<string,int>,ordenDecre > commonNmer(int threshold);
 
       /** @brief Devuelve el conjunto de Nmers de longitud exacta l.
       */
-      set<pair<string,int>, ordenCrec > level(int l);
+      //set<pair<string,int>, ordenCrec > level(int l);
 
       /** @brief Distancia entre dos Nmer
       */
       float Distance(const Nmer & x);
+
+      /** @brief Recorrido en preorden del arbol, mostrando el Nmer
+      */
+      void recorrido_preorden (ktree<pair<char,int>,4>::const_node n, string & contenido) const;
+
+
+
 
    private:
      ktree<pair<char,int>,4> el_Nmer; // subsecuencias
@@ -98,5 +137,7 @@ class Nmer {
         }
      };
 };
+
+ostream& operator<<(ostream & s, const pair<char,int> & par);
 
 #endif

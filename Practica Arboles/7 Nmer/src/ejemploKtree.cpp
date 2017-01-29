@@ -13,10 +13,10 @@ using namespace std;
 using namespace std::chrono;
 
 
-std::ostream&   operator<<(ostream & s, const pair<char,int> & par){
+/*std::ostream&   operator<<(ostream & s, const pair<char,int> & par){
   s << par.first << " " << par.second;
   return s;
-}
+}*/
 
 template<typename T, int K>
 vector<T> calcula_padres(typename ktree<T,K>::const_node  n){
@@ -242,7 +242,7 @@ cout << "Altura: abb " << Altura(abb) << " multiset (cota superior) " << 2.0*log
 }
 
 int main(){
-    
+
 
    ktree<int,2> abb;
 
@@ -284,6 +284,10 @@ int main(){
    prueba.loadSerialized("../datos/cadenaSimple.srl");
    prueba.list_Nmer();
    cout << prueba.size() << " " << prueba.length() << endl;
+
+   Nmer prueba2;
+   prueba2 = prueba.Prefix("A");
+   prueba2.list_Nmer();
 
    return 0;
 
