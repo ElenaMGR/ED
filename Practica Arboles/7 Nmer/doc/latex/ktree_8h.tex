@@ -1,0 +1,353 @@
+\hypertarget{ktree_8h}{}\subsection{Referencia del Archivo include/ktree.h}
+\label{ktree_8h}\index{include/ktree.\+h@{include/ktree.\+h}}
+
+
+T\+DA ktree$<$\+T,\+K$>$ Representa un árbol general con nodos etiquetados con datos del tipo T. Cada nodo puede tener entre 0 y K hijos como máximo, numerados de 0 a K-\/1.  
+
+
+{\ttfamily \#include $<$queue$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include \char`\"{}../src/ktree.\+hpp\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../src/ktree\+Node.\+hpp\char`\"{}}\\*
+\subsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classktree}{ktree$<$ T, K $>$}
+\item 
+class \hyperlink{classktree_1_1node}{ktree$<$ T, K $>$\+::node}
+\item 
+class \hyperlink{classktree_1_1node_1_1child__iterator}{ktree$<$ T, K $>$\+::node\+::child\+\_\+iterator}
+\item 
+class \hyperlink{classktree_1_1const__node}{ktree$<$ T, K $>$\+::const\+\_\+node}
+\item 
+class \hyperlink{classktree_1_1const__node_1_1child__iterator}{ktree$<$ T, K $>$\+::const\+\_\+node\+::child\+\_\+iterator}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Descripción detallada}
+T\+DA ktree$<$\+T,\+K$>$ Representa un árbol general con nodos etiquetados con datos del tipo T. Cada nodo puede tener entre 0 y K hijos como máximo, numerados de 0 a K-\/1. 
+
+\begin{DoxyAuthor}{Autor}
+Juan F. Huete 
+\end{DoxyAuthor}
+\begin{DoxyRefDesc}{Bug}
+\item[\hyperlink{bug__bug000001}{Bug}]Por espeficicar\end{DoxyRefDesc}
+
+
+El ktree$<$\+T,\+K$>$ exporta los siguientes tipos\+: \begin{DoxyItemize}
+\item ktree$<$\+T,\+K$>$ árbol general \item ktree$<$\+T,\+K$>$\+::node -\/$>$ Hace referencia a un nodo del árbol \item ktree$<$\+T,\+K$>$\+::const\+\_\+node -\/$>$ Hace referencia a un nodo constante (no se puede modificar su contenido) del árbol \item ktree$<$\+T,k$>$\+::node\+::iterator -\/$>$ Iteradores sobre los descendientes directos de un nodo \item ktree$<$\+T,\+K$>$\+::node\+::iterator -\/$>$ Iterador constante sobre los descendientes directos de un nodo \item \hyperlink{classktree_ac0f325d73a32ea75b8d09579c2085566}{ktree$<$\+T,\+K$>$\+::size\+\_\+type} -\/$>$ Hace referencia al tamaño del árbol (unsigned int)\end{DoxyItemize}
+T debe tener definidas las operaciones\+:
+
+
+\begin{DoxyItemize}
+\item T \& operator=(const T \& e);
+\item bool operator!=(const T \& e);
+\item bool opertaor==(const T \& e);
+\end{DoxyItemize}
+
+Son mutables. Residen en memoria dinámica.
+
+Un ejemplo de su uso\+: 
+\begin{DoxyCodeInclude}
+\textcolor{preprocessor}{#include <iostream>}
+\textcolor{preprocessor}{#include <string>}
+\textcolor{preprocessor}{#include <queue>}
+\textcolor{preprocessor}{#include <set>}
+\textcolor{preprocessor}{#include <utility>}
+\textcolor{preprocessor}{#include <random>}
+\textcolor{preprocessor}{#include <chrono>}
+\textcolor{preprocessor}{#include <cmath>}
+\textcolor{preprocessor}{#include "\hyperlink{ktree_8h}{ktree.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{Nmer_8h}{Nmer.h}"}
+
+\textcolor{keyword}{using namespace }\hyperlink{namespacestd}{std};
+\textcolor{keyword}{using namespace }\hyperlink{namespacestd_1_1chrono}{std::chrono};
+
+
+\textcolor{comment}{/*std::ostream&   operator<<(ostream & s, const pair<char,int> & par)\{}
+\textcolor{comment}{  s << par.first << " " << par.second;}
+\textcolor{comment}{  return s;}
+\textcolor{comment}{\}*/}
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} K>
+vector<T> \hyperlink{ejemploKtree_8cpp_a512e0736b309ed242ee635c036823f90}{calcula\_padres}(\textcolor{keyword}{typename} \hyperlink{classktree_1_1const__node}{ktree<T,K>::const\_node}  n)\{
+vector<T> salida;
+\textcolor{keywordflow}{while} (!n.\hyperlink{classktree_1_1const__node_a2a5d20cd6c40daea30e006490dafbd8a}{null}())\{
+ salida.push\_back(*n);
+ n = n.\hyperlink{classktree_1_1const__node_a0ead125a85ccf4ddecb46bea325fad68}{parent}();
+\}
+ \textcolor{keywordflow}{return} salida;
+\}
+
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} K>
+\textcolor{keywordtype}{void} \hyperlink{ejemploKtree_8cpp_ad658af52bddfb159a19c49bab8be5910}{recorrido\_por\_niveles}(\textcolor{keyword}{const} \hyperlink{classktree}{ktree<T,K>} & a)\{
+recorrido\_por\_niveles<T,K>(a.\hyperlink{classktree_a2d252651d05d9a107c009fcfdfc91df4}{root}());
+\}
+
+
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} K>
+\textcolor{keywordtype}{void} \hyperlink{ejemploKtree_8cpp_ad658af52bddfb159a19c49bab8be5910}{recorrido\_por\_niveles}(\textcolor{keyword}{typename} \hyperlink{classktree_1_1const__node}{ktree<T,K>::const\_node}  n)\{
+\textcolor{keyword}{typename} \hyperlink{classktree_1_1const__node}{ktree<T,K>::const\_node} aux;
+queue<typename ktree<T,K>::const\_node > cola;
+
+\textcolor{keywordflow}{if} (!n.\hyperlink{classktree_1_1const__node_a2a5d20cd6c40daea30e006490dafbd8a}{null}())
+  cola.push(n);
+
+\textcolor{keywordflow}{while} (!cola.empty())\{
+  aux = cola.front();
+  cola.pop();
+  cout << \textcolor{stringliteral}{"("} <<  (*aux)  <<\textcolor{stringliteral}{"); "};
+  \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} hijo : aux)
+    cola.push(hijo);
+ \}
+cout << endl;
+\}
+
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} K>
+\textcolor{keywordtype}{int} \hyperlink{ejemploKtree_8cpp_ac6b63bf05ca874f6f68056e48d972302}{Altura}(\textcolor{keyword}{const} \hyperlink{classktree}{ktree<T,K>} & arbol)\{
+ \textcolor{keywordflow}{return} Altura<T,K>(arbol.\hyperlink{classktree_a2d252651d05d9a107c009fcfdfc91df4}{root}());
+
+\}
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} K>
+\textcolor{keywordtype}{int} \hyperlink{ejemploKtree_8cpp_ac6b63bf05ca874f6f68056e48d972302}{Altura}(\textcolor{keyword}{typename} \hyperlink{classktree_1_1const__node}{ktree<T,K>::const\_node}   n)\{
+\textcolor{keywordtype}{int} hmax=-1;
+\textcolor{keywordflow}{if} (!n.\hyperlink{classktree_1_1const__node_a2a5d20cd6c40daea30e006490dafbd8a}{null}())\{
+  \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} hijo:n) \{
+    \textcolor{keywordtype}{int} hact = Altura<T,K>(hijo);
+    \textcolor{keywordflow}{if} (hact > hmax)
+      hmax = hact;
+  \}
+  \textcolor{keywordflow}{return} hmax+1;
+ \}
+ \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} -1;
+\}
+
+
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} K>
+\textcolor{keywordtype}{void} \hyperlink{ejemploKtree_8cpp_a7ae38f4399966752d1ca1d20d24b63ac}{recorrido\_preorden}(\textcolor{keyword}{const} \hyperlink{classktree}{ktree<T,K>} & arbol)\{
+ recorrido\_preorden<T,K>(arbol.\hyperlink{classktree_a2d252651d05d9a107c009fcfdfc91df4}{root}());
+
+\}
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} K>
+\textcolor{keywordtype}{void} \hyperlink{ejemploKtree_8cpp_a7ae38f4399966752d1ca1d20d24b63ac}{recorrido\_preorden}(\textcolor{keyword}{typename} \hyperlink{classktree_1_1const__node}{ktree<T,K>::const\_node}   n)\{
+
+\textcolor{keywordflow}{if} (!n.\hyperlink{classktree_1_1const__node_a2a5d20cd6c40daea30e006490dafbd8a}{null}())\{
+  cout << \textcolor{stringliteral}{"( "} << (*n) <<\textcolor{stringliteral}{"); "} <<endl;
+  \textcolor{keyword}{typename} \hyperlink{classktree_1_1const__node_1_1child__iterator}{ktree<T,K>::const\_node::child\_iterator} ini = n.
+      \hyperlink{classktree_1_1const__node_a82daa356afc4fd6709342960efd40300}{begin}();
+  \textcolor{keyword}{typename} \hyperlink{classktree_1_1const__node_1_1child__iterator}{ktree<T,K>::const\_node::child\_iterator} fin = n.
+      \hyperlink{classktree_1_1const__node_a4f0be6cd5e9680e2dbe8305916422131}{end}();
+  \textcolor{keywordflow}{while} (ini!=fin)\{
+     recorrido\_preorden<T,K>(*ini);
+     ++ini;
+   \}
+ \}
+\}
+
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} K>
+\textcolor{keywordtype}{void} \hyperlink{ejemploKtree_8cpp_a37aa684934db54c0a2564873f636b18d}{recorrido\_inorden}(\textcolor{keyword}{const} \hyperlink{classktree}{ktree<T,K>} & arbol)\{
+ recorrido\_inorden<T,K>(arbol.\hyperlink{classktree_a2d252651d05d9a107c009fcfdfc91df4}{root}());
+
+\}
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} = 2>
+\textcolor{keywordtype}{void} \hyperlink{ejemploKtree_8cpp_a37aa684934db54c0a2564873f636b18d}{recorrido\_inorden}(\textcolor{keyword}{typename} \hyperlink{classktree_1_1const__node}{ktree<T,2>::const\_node}   n)\{
+
+\textcolor{keywordflow}{if} (!n.\hyperlink{classktree_1_1const__node_a2a5d20cd6c40daea30e006490dafbd8a}{null}())\{
+   recorrido\_inorden<T,2>(n.\hyperlink{classktree_1_1const__node_ac853df3589c77a18836ddd4a9741b789}{k\_child}(0));
+   cout << *n <<\textcolor{stringliteral}{".."};
+   recorrido\_inorden<T,2>(n.k\_child(1));
+   \}
+\}
+
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} K>
+\textcolor{keywordtype}{void} \hyperlink{ejemploKtree_8cpp_a74cda70a458696251c8b2a963344487a}{listar\_hijos}(\textcolor{keyword}{typename} \hyperlink{classktree_1_1node}{ktree<T,K>::node}  n)\{
+
+\textcolor{keywordflow}{if} (!n.\hyperlink{classktree_1_1node_ad1fb93f739663851a23f1181848da87a}{null}())\{
+
+  \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<K;i++)\{
+   \textcolor{keywordflow}{if} (!n.\hyperlink{classktree_1_1node_adcb69c2caed252b51d400f4237c1f472}{k\_child}(i).\hyperlink{classktree_1_1node_ad1fb93f739663851a23f1181848da87a}{null}())
+     cout <<\textcolor{stringliteral}{"uso kchild"} << *(n.\hyperlink{classktree_1_1node_adcb69c2caed252b51d400f4237c1f472}{k\_child}(i)) << endl;
+  \}
+
+  \textcolor{keyword}{typename} \hyperlink{classktree_1_1node_1_1child__iterator}{ktree<T,K>::node::child\_iterator} ini = n.
+      \hyperlink{classktree_1_1node_ab1d94976dda6df402ea1c4281cb3679a}{begin}();
+  \textcolor{keyword}{typename} \hyperlink{classktree_1_1node_1_1child__iterator}{ktree<T,K>::node::child\_iterator} fin = n.
+      \hyperlink{classktree_1_1node_adcca94414cd6a337bddf153eb88fa044}{end}();
+  \textcolor{keywordflow}{while} (ini!=fin)\{
+    \textcolor{keyword}{typename} \hyperlink{classktree_1_1node}{ktree<T,K>::node} aux = *ini;
+     cout <<\textcolor{stringliteral}{"uso iterador "} << (*aux)  << \textcolor{stringliteral}{".."} << endl;
+     ++ini;
+   \}
+
+  \textcolor{keywordflow}{for} ( \textcolor{keyword}{typename} \hyperlink{classktree_1_1node}{ktree<T,K>::node} hijo : n)
+    cout <<  \textcolor{stringliteral}{"uso for en rango  "} << *hijo<< endl;
+  cout <<\textcolor{stringliteral}{"sss"}<<endl;
+ \}
+\}
+
+
+
+
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T>
+\textcolor{keywordtype}{void} \hyperlink{ejemploKtree_8cpp_a6fd0b8ba76207351d65a115b86b84c62}{insertar\_valorABB}(\hyperlink{classktree}{ktree<T,2>} & arbol, \textcolor{keyword}{const} T &valor)\{
+
+  \textcolor{keywordflow}{if} (arbol.\hyperlink{classktree_a71f040bbe682e6bf70a60c88ef13e20b}{empty}())
+    arbol.\hyperlink{classktree_a2fbab28302612402eae9097b6d520300}{assing}(valor);
+  \textcolor{keywordflow}{else} \{
+    \textcolor{keyword}{typename} \hyperlink{classktree_1_1node}{ktree<T,2>::node} n = arbol.\hyperlink{classktree_a2d252651d05d9a107c009fcfdfc91df4}{root}();
+    \textcolor{keywordtype}{bool} insertado = \textcolor{keyword}{false};
+    \textcolor{keywordtype}{int} hijo;
+    \textcolor{keywordflow}{while} (!insertado)\{
+      \textcolor{keywordflow}{if} ( valor <*n) hijo =0;
+      \textcolor{keywordflow}{else}  hijo = 1;
+
+      \textcolor{keywordflow}{if} (n.\hyperlink{classktree_1_1node_adcb69c2caed252b51d400f4237c1f472}{k\_child}(hijo).\hyperlink{classktree_1_1node_ad1fb93f739663851a23f1181848da87a}{null}())\{
+      arbol.\hyperlink{classktree_a10b652a0d5ad225d550726b5bed22a5c}{insert\_k\_child}(n, hijo,valor);
+      insertado = \textcolor{keyword}{true};
+      \}
+      \textcolor{keywordflow}{else} n=n.\hyperlink{classktree_1_1node_adcb69c2caed252b51d400f4237c1f472}{k\_child}(hijo);
+    \}
+  \}
+
+\}
+
+
+
+
+\textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} K>
+\textcolor{keywordtype}{void} \hyperlink{ejemploKtree_8cpp_a3755864b9267046c16364f7a590393c4}{CambiaEtiquetas}(\textcolor{keyword}{typename} \hyperlink{classktree_1_1node}{ktree<T,K>::node}  n, \textcolor{keyword}{const} T & antigua, \textcolor{keyword}{const} 
+      T & nueva)\{
+\textcolor{keywordflow}{if} (!n.\hyperlink{classktree_1_1node_ad1fb93f739663851a23f1181848da87a}{null}())\{
+  \textcolor{keywordflow}{if} (*n==antigua)
+     *n=nueva;
+  \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<K;i++)\{
+   \textcolor{keywordflow}{if} (!n.\hyperlink{classktree_1_1node_adcb69c2caed252b51d400f4237c1f472}{k\_child}(i).\hyperlink{classktree_1_1node_ad1fb93f739663851a23f1181848da87a}{null}())
+    CambiaEtiquetas<T,K>(n.\hyperlink{classktree_1_1node_adcb69c2caed252b51d400f4237c1f472}{k\_child}(i),antigua, nueva);
+  \}
+ \}
+\}
+
+\textcolor{comment}{/*}
+\textcolor{comment}{template<typename T, int K>}
+\textcolor{comment}{void CambiaEtiquetas2(typename ktree<T,K>::const\_node  n, const T & antigua, const T & nueva)\{}
+\textcolor{comment}{cout <<"Modificamos etiquetas, lo que puede ser error "<< endl;}
+\textcolor{comment}{if (!n.null())\{}
+\textcolor{comment}{}
+\textcolor{comment}{  cout << "(c" << (*n) <<") ";}
+\textcolor{comment}{  if (*n==antigua)}
+\textcolor{comment}{     *n=nueva; <---- NO compila, es const\_node y no se puede cambiar su valor}
+\textcolor{comment}{  for (int i=0; i<K;i++)\{}
+\textcolor{comment}{   if (!n.k\_child(i).null())}
+\textcolor{comment}{    CambiaEtiquetas2<T,K>(n.k\_child(i),antigua, nueva);}
+\textcolor{comment}{  \}}
+\textcolor{comment}{ \}}
+\textcolor{comment}{\}}
+\textcolor{comment}{*/}
+
+
+
+
+\textcolor{keywordtype}{void} \hyperlink{ejemploKtree_8cpp_a746189755e2170f3742cd9805bab1c72}{TiempoComparativo}(  \textcolor{keywordtype}{int} tama)\{
+
+\hyperlink{classktree}{ktree<int,2>} abb;
+multiset<int> cjto;
+vector<int> datos;
+datos.reserve(tama);
+cout<< \textcolor{stringliteral}{"\(\backslash\)n Analisis comparativo de tiempos para abb (con ktree) y multiset para "}<< tama << \textcolor{stringliteral}{" datos"}<<endl;
+std::default\_random\_engine generator;
+std::uniform\_int\_distribution<int> distribution(1,5000);
+
+\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0;i<tama;i++)
+  datos.push\_back(distribution(generator));
+
+
+high\_resolution\_clock::time\_point tantes,tdespues;
+duration<double> tiempo\_transcurrido;
+
+tantes =  high\_resolution\_clock::now();
+\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i< tama; i++)\{
+  insertar\_valorABB<int>(abb,datos[i]);
+ \}
+tdespues = high\_resolution\_clock::now();
+tiempo\_transcurrido  = duration\_cast<duration<double> >(tdespues - tantes);
+cout << \textcolor{stringliteral}{"arbol (size "}<<abb.\hyperlink{classktree_a92ec62757b1c5e5de363926a47c34dfa}{size}() << \textcolor{stringliteral}{") t= "} << tiempo\_transcurrido.count() << endl;
+
+
+
+
+tantes = high\_resolution\_clock::now();
+\textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i< tama; i++)\{
+    cjto.insert(datos[i]);
+
+\}
+tdespues =  high\_resolution\_clock::now();
+tiempo\_transcurrido  = duration\_cast<duration<double> >(tdespues - tantes);
+cout << \textcolor{stringliteral}{"multiset  size( "}<< cjto.size() << \textcolor{stringliteral}{") t= "} << tiempo\_transcurrido.count() << endl;
+
+
+cout << \textcolor{stringliteral}{"Altura: abb "} << \hyperlink{ejemploKtree_8cpp_ac6b63bf05ca874f6f68056e48d972302}{Altura}(abb) << \textcolor{stringliteral}{" multiset (cota superior) "} << 2.0*log2(tama+1.0)<<endl;
+\}
+
+\textcolor{keywordtype}{int} \hyperlink{ejemploKtree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}()\{
+
+
+   \hyperlink{classktree}{ktree<int,2>} abb;
+
+   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=3; i<10; i+=2)
+     insertar\_valorABB<int>(abb,i);
+
+
+   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=1; i<15; i+=3)
+     insertar\_valorABB<int>(abb,i);
+
+
+   cout << \textcolor{stringliteral}{"\(\backslash\)n Listado hijos de la raiz"} <<endl;
+   listar\_hijos<int,2>(abb.\hyperlink{classktree_a2d252651d05d9a107c009fcfdfc91df4}{root}());
+
+   cout << \textcolor{stringliteral}{"\(\backslash\)n Listado en Inorden"} <<endl;
+   recorrido\_inorden<int,2>(abb);
+
+
+   cout << \textcolor{stringliteral}{"\(\backslash\)n Listado en Preorden"} <<endl;
+   recorrido\_preorden<int,2>(abb);
+
+   cout << \textcolor{stringliteral}{"\(\backslash\)n Listado por Niveles"} << endl;
+   recorrido\_por\_niveles<int,2>(abb);
+   \textcolor{keywordtype}{int} org = 5;
+   \textcolor{keywordtype}{int} nv = 0;
+   cout << \textcolor{stringliteral}{"Modifico etiquetas "}<< org << \textcolor{stringliteral}{"->"} << nv<< endl;
+   cout <<\textcolor{stringliteral}{"(Si es arbol binario de busqueda puede violar el invariante)"} <<endl;
+   CambiaEtiquetas<int,2>(abb.\hyperlink{classktree_a2d252651d05d9a107c009fcfdfc91df4}{root}(), org, nv);
+
+   cout << \textcolor{stringliteral}{"\(\backslash\)n Listado en Inorden"} <<endl;
+   recorrido\_inorden<int,2>(abb);
+
+   \hyperlink{ejemploKtree_8cpp_a746189755e2170f3742cd9805bab1c72}{TiempoComparativo}(1000000);
+
+   \hyperlink{classktree}{ktree<pair<char,int>},4> X;
+   \hyperlink{ejemploKtree_8cpp_a7ae38f4399966752d1ca1d20d24b63ac}{recorrido\_preorden}(X);
+
+   \hyperlink{classNmer}{Nmer} prueba;
+   prueba.\hyperlink{classNmer_a418c016bb6e04d2f699ddb694ee0221f}{loadSerialized}(\textcolor{stringliteral}{"../datos/cadenaSimple.srl"});
+   prueba.\hyperlink{classNmer_a1ce1c0cb174d94685c7234f58f9dc119}{list\_Nmer}();
+   cout << prueba.\hyperlink{classNmer_accdea65838fcd53c48a2d05f6809643f}{size}() << \textcolor{stringliteral}{" "} << prueba.\hyperlink{classNmer_a60e2335600c01ee39e865790015818f0}{length}() << endl;
+
+   \hyperlink{classNmer}{Nmer} prueba2;
+   prueba2 = prueba.\hyperlink{classNmer_adf184ca659cf3ce3f2db301acae40e56}{Prefix}(\textcolor{stringliteral}{"AT"});
+   prueba2.\hyperlink{classNmer_a1ce1c0cb174d94685c7234f58f9dc119}{list\_Nmer}();
+
+   \textcolor{keywordflow}{return} 0;
+
+\}
+\end{DoxyCodeInclude}
+ 

@@ -1,0 +1,334 @@
+\begin{theindex}
+
+  \item {$\sim$ktree}
+    \subitem {ktree}, \hyperpage{24}
+
+  \indexspace
+
+  \item {Altura}
+    \subitem {ejemplo\+Ktree.\+cpp}, \hyperpage{45}
+  \item {assing}
+    \subitem {ktree}, \hyperpage{24}
+
+  \indexspace
+
+  \item {begin}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{19}
+    \subitem {ktree\+::node}, \hyperpage{34}
+
+  \indexspace
+
+  \item {calcula\+\_\+padres}
+    \subitem {ejemplo\+Ktree.\+cpp}, \hyperpage{45}
+  \item {Cambia\+Etiquetas}
+    \subitem {ejemplo\+Ktree.\+cpp}, \hyperpage{45}
+  \item {cbegin}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{19}
+  \item {cend}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{19}
+  \item {child\+\_\+iterator}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{22}
+    \subitem {ktree\+::const\+\_\+node\+::child\+\_\+iterator}, 
+		\hyperpage{17}
+    \subitem {ktree\+::node}, \hyperpage{36}
+    \subitem {ktree\+::node\+::child\+\_\+iterator}, \hyperpage{16}
+  \item {child\+\_\+number}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{19}
+    \subitem {ktree\+::node}, \hyperpage{34}
+  \item {clear}
+    \subitem {ktree}, \hyperpage{24}
+  \item {common\+Nmer}
+    \subitem {Nmer}, \hyperpage{29}
+  \item {const\+\_\+node}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{19}
+    \subitem {ktree\+::const\+\_\+node\+::child\+\_\+iterator}, 
+		\hyperpage{17}
+  \item {contains\+String}
+    \subitem {Nmer}, \hyperpage{29}
+
+  \indexspace
+
+  \item {deserialize}
+    \subitem {ktree}, \hyperpage{24}
+  \item {Distance}
+    \subitem {Nmer}, \hyperpage{30}
+  \item {doc/doxys/gen\+Data.\+dox}, \hyperpage{39}
+
+  \indexspace
+
+  \item {ejemplo\+Ktree.\+cpp}
+    \subitem {Altura}, \hyperpage{45}
+    \subitem {calcula\+\_\+padres}, \hyperpage{45}
+    \subitem {Cambia\+Etiquetas}, \hyperpage{45}
+    \subitem {insertar\+\_\+valor\+A\+BB}, \hyperpage{45}
+    \subitem {listar\+\_\+hijos}, \hyperpage{45}
+    \subitem {main}, \hyperpage{46}
+    \subitem {recorrido\+\_\+inorden}, \hyperpage{46}
+    \subitem {recorrido\+\_\+por\+\_\+niveles}, \hyperpage{46}
+    \subitem {recorrido\+\_\+preorden}, \hyperpage{46}
+    \subitem {Tiempo\+Comparativo}, \hyperpage{46}
+  \item {empty}
+    \subitem {ktree}, \hyperpage{25}
+  \item {end}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{19}
+    \subitem {ktree\+::node}, \hyperpage{34}
+
+  \indexspace
+
+  \item {include/\+Nmer.\+h}, \hyperpage{43}
+  \item {include/ktree.\+h}, \hyperpage{39}
+  \item {included}
+    \subitem {Nmer}, \hyperpage{30}
+  \item {insert\+\_\+k\+\_\+child}
+    \subitem {ktree}, \hyperpage{25}
+  \item {insertar\+\_\+valor\+A\+BB}
+    \subitem {ejemplo\+Ktree.\+cpp}, \hyperpage{45}
+
+  \indexspace
+
+  \item {k\+\_\+child}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{19}
+    \subitem {ktree\+::node}, \hyperpage{34}
+  \item {ktree}
+    \subitem {$\sim$ktree}, \hyperpage{24}
+    \subitem {assing}, \hyperpage{24}
+    \subitem {clear}, \hyperpage{24}
+    \subitem {deserialize}, \hyperpage{24}
+    \subitem {empty}, \hyperpage{25}
+    \subitem {insert\+\_\+k\+\_\+child}, \hyperpage{25}
+    \subitem {ktree}, \hyperpage{23, 24}
+    \subitem {kvalue}, \hyperpage{27}
+    \subitem {operator!=}, \hyperpage{26}
+    \subitem {operator=}, \hyperpage{26}
+    \subitem {operator==}, \hyperpage{26}
+    \subitem {prune\+\_\+k\+\_\+child}, \hyperpage{26}
+    \subitem {root}, \hyperpage{27}
+    \subitem {serialize}, \hyperpage{27}
+    \subitem {size}, \hyperpage{27}
+    \subitem {size\+\_\+type}, \hyperpage{23}
+  \item {ktree$<$ T, K $>$}, \hyperpage{22}
+    \subitem {ktree\+::node}, \hyperpage{36}
+  \item {ktree$<$ T, K $>$\+::const\+\_\+node}, \hyperpage{18}
+  \item {ktree$<$ T, K $>$\+::const\+\_\+node\+::child\+\_\+iterator}, 
+		\hyperpage{16}
+  \item {ktree$<$ T, K $>$\+::node}, \hyperpage{33}
+  \item {ktree$<$ T, K $>$\+::node\+::child\+\_\+iterator}, 
+		\hyperpage{15}
+  \item {ktree\+::const\+\_\+node}
+    \subitem {begin}, \hyperpage{19}
+    \subitem {cbegin}, \hyperpage{19}
+    \subitem {cend}, \hyperpage{19}
+    \subitem {child\+\_\+iterator}, \hyperpage{22}
+    \subitem {child\+\_\+number}, \hyperpage{19}
+    \subitem {const\+\_\+node}, \hyperpage{19}
+    \subitem {end}, \hyperpage{19}
+    \subitem {k\+\_\+child}, \hyperpage{19}
+    \subitem {null}, \hyperpage{19}
+    \subitem {operator!=}, \hyperpage{20}
+    \subitem {operator$\ast$}, \hyperpage{21}
+    \subitem {operator=}, \hyperpage{21}
+    \subitem {operator==}, \hyperpage{21}
+    \subitem {operator[]}, \hyperpage{21}
+    \subitem {parent}, \hyperpage{21}
+  \item {ktree\+::const\+\_\+node\+::child\+\_\+iterator}
+    \subitem {child\+\_\+iterator}, \hyperpage{17}
+    \subitem {const\+\_\+node}, \hyperpage{17}
+    \subitem {operator!=}, \hyperpage{17}
+    \subitem {operator$\ast$}, \hyperpage{17}
+    \subitem {operator++}, \hyperpage{17}
+    \subitem {operator=}, \hyperpage{17}
+    \subitem {operator==}, \hyperpage{17}
+  \item {ktree\+::node}
+    \subitem {begin}, \hyperpage{34}
+    \subitem {child\+\_\+iterator}, \hyperpage{36}
+    \subitem {child\+\_\+number}, \hyperpage{34}
+    \subitem {end}, \hyperpage{34}
+    \subitem {k\+\_\+child}, \hyperpage{34}
+    \subitem {ktree$<$ T, K $>$}, \hyperpage{36}
+    \subitem {node}, \hyperpage{34}
+    \subitem {null}, \hyperpage{34}
+    \subitem {operator!=}, \hyperpage{34}
+    \subitem {operator$\ast$}, \hyperpage{35}
+    \subitem {operator=}, \hyperpage{35}
+    \subitem {operator==}, \hyperpage{35}
+    \subitem {operator[]}, \hyperpage{35}
+    \subitem {parent}, \hyperpage{35}
+  \item {ktree\+::node\+::child\+\_\+iterator}
+    \subitem {child\+\_\+iterator}, \hyperpage{16}
+    \subitem {node}, \hyperpage{16}
+    \subitem {operator!=}, \hyperpage{16}
+    \subitem {operator$\ast$}, \hyperpage{16}
+    \subitem {operator++}, \hyperpage{16}
+    \subitem {operator=}, \hyperpage{16}
+    \subitem {operator==}, \hyperpage{16}
+  \item {kvalue}
+    \subitem {ktree}, \hyperpage{27}
+
+  \indexspace
+
+  \item {length}
+    \subitem {Nmer}, \hyperpage{30}
+  \item {level}
+    \subitem {Nmer}, \hyperpage{30}
+  \item {list\+\_\+\+Nmer}
+    \subitem {Nmer}, \hyperpage{30}
+  \item {listar\+\_\+hijos}
+    \subitem {ejemplo\+Ktree.\+cpp}, \hyperpage{45}
+  \item {load\+Fichero}
+    \subitem {Nmer}, \hyperpage{30}
+  \item {load\+Serialized}
+    \subitem {Nmer}, \hyperpage{31}
+
+  \indexspace
+
+  \item {main}
+    \subitem {ejemplo\+Ktree.\+cpp}, \hyperpage{46}
+
+  \indexspace
+
+  \item {Nmer}, \hyperpage{28}
+    \subitem {common\+Nmer}, \hyperpage{29}
+    \subitem {contains\+String}, \hyperpage{29}
+    \subitem {Distance}, \hyperpage{30}
+    \subitem {included}, \hyperpage{30}
+    \subitem {length}, \hyperpage{30}
+    \subitem {level}, \hyperpage{30}
+    \subitem {list\+\_\+\+Nmer}, \hyperpage{30}
+    \subitem {load\+Fichero}, \hyperpage{30}
+    \subitem {load\+Serialized}, \hyperpage{31}
+    \subitem {Nmer}, \hyperpage{29}
+    \subitem {operator=}, \hyperpage{31}
+    \subitem {Prefix}, \hyperpage{31}
+    \subitem {rare\+Nmer}, \hyperpage{31}
+    \subitem {recorrido\+\_\+preorden}, \hyperpage{31}
+    \subitem {recorrido\+Common\+Nmer}, \hyperpage{31}
+    \subitem {recorrido\+Include}, \hyperpage{31}
+    \subitem {recorrido\+Level}, \hyperpage{32}
+    \subitem {recorrido\+Rare\+Nmer}, \hyperpage{32}
+    \subitem {recorrido\+Union}, \hyperpage{32}
+    \subitem {sequence\+A\+DN}, \hyperpage{32}
+    \subitem {size}, \hyperpage{32}
+    \subitem {size\+\_\+type}, \hyperpage{29}
+    \subitem {Union}, \hyperpage{32}
+  \item {Nmer.\+cpp}
+    \subitem {operator$<$$<$}, \hyperpage{46}
+  \item {Nmer.\+h}
+    \subitem {operator$<$$<$}, \hyperpage{44}
+  \item {node}
+    \subitem {ktree\+::node}, \hyperpage{34}
+    \subitem {ktree\+::node\+::child\+\_\+iterator}, \hyperpage{16}
+  \item {null}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{19}
+    \subitem {ktree\+::node}, \hyperpage{34}
+
+  \indexspace
+
+  \item {operator!=}
+    \subitem {ktree}, \hyperpage{26}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{20}
+    \subitem {ktree\+::const\+\_\+node\+::child\+\_\+iterator}, 
+		\hyperpage{17}
+    \subitem {ktree\+::node}, \hyperpage{34}
+    \subitem {ktree\+::node\+::child\+\_\+iterator}, \hyperpage{16}
+  \item {operator$<$$<$}
+    \subitem {Nmer.\+cpp}, \hyperpage{46}
+    \subitem {Nmer.\+h}, \hyperpage{44}
+  \item {operator$\ast$}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{21}
+    \subitem {ktree\+::const\+\_\+node\+::child\+\_\+iterator}, 
+		\hyperpage{17}
+    \subitem {ktree\+::node}, \hyperpage{35}
+    \subitem {ktree\+::node\+::child\+\_\+iterator}, \hyperpage{16}
+  \item {operator()}
+    \subitem {Orden\+Cre}, \hyperpage{36}
+    \subitem {Orden\+Decre}, \hyperpage{37}
+    \subitem {Orden\+Decre\+St}, \hyperpage{38}
+  \item {operator++}
+    \subitem {ktree\+::const\+\_\+node\+::child\+\_\+iterator}, 
+		\hyperpage{17}
+    \subitem {ktree\+::node\+::child\+\_\+iterator}, \hyperpage{16}
+  \item {operator=}
+    \subitem {ktree}, \hyperpage{26}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{21}
+    \subitem {ktree\+::const\+\_\+node\+::child\+\_\+iterator}, 
+		\hyperpage{17}
+    \subitem {ktree\+::node}, \hyperpage{35}
+    \subitem {ktree\+::node\+::child\+\_\+iterator}, \hyperpage{16}
+    \subitem {Nmer}, \hyperpage{31}
+  \item {operator==}
+    \subitem {ktree}, \hyperpage{26}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{21}
+    \subitem {ktree\+::const\+\_\+node\+::child\+\_\+iterator}, 
+		\hyperpage{17}
+    \subitem {ktree\+::node}, \hyperpage{35}
+    \subitem {ktree\+::node\+::child\+\_\+iterator}, \hyperpage{16}
+  \item {operator[]}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{21}
+    \subitem {ktree\+::node}, \hyperpage{35}
+  \item {Orden\+Cre}, \hyperpage{36}
+    \subitem {operator()}, \hyperpage{36}
+  \item {Orden\+Decre}, \hyperpage{37}
+    \subitem {operator()}, \hyperpage{37}
+  \item {Orden\+Decre\+St}, \hyperpage{38}
+    \subitem {operator()}, \hyperpage{38}
+
+  \indexspace
+
+  \item {parent}
+    \subitem {ktree\+::const\+\_\+node}, \hyperpage{21}
+    \subitem {ktree\+::node}, \hyperpage{35}
+  \item {Prefix}
+    \subitem {Nmer}, \hyperpage{31}
+  \item {prune\+\_\+k\+\_\+child}
+    \subitem {ktree}, \hyperpage{26}
+
+  \indexspace
+
+  \item {rare\+Nmer}
+    \subitem {Nmer}, \hyperpage{31}
+  \item {recorrido\+\_\+inorden}
+    \subitem {ejemplo\+Ktree.\+cpp}, \hyperpage{46}
+  \item {recorrido\+\_\+por\+\_\+niveles}
+    \subitem {ejemplo\+Ktree.\+cpp}, \hyperpage{46}
+  \item {recorrido\+\_\+preorden}
+    \subitem {ejemplo\+Ktree.\+cpp}, \hyperpage{46}
+    \subitem {Nmer}, \hyperpage{31}
+  \item {recorrido\+Common\+Nmer}
+    \subitem {Nmer}, \hyperpage{31}
+  \item {recorrido\+Include}
+    \subitem {Nmer}, \hyperpage{31}
+  \item {recorrido\+Level}
+    \subitem {Nmer}, \hyperpage{32}
+  \item {recorrido\+Rare\+Nmer}
+    \subitem {Nmer}, \hyperpage{32}
+  \item {recorrido\+Union}
+    \subitem {Nmer}, \hyperpage{32}
+  \item {root}
+    \subitem {ktree}, \hyperpage{27}
+
+  \indexspace
+
+  \item {sequence\+A\+DN}
+    \subitem {Nmer}, \hyperpage{32}
+  \item {serialize}
+    \subitem {ktree}, \hyperpage{27}
+  \item {size}
+    \subitem {ktree}, \hyperpage{27}
+    \subitem {Nmer}, \hyperpage{32}
+  \item {size\+\_\+type}
+    \subitem {ktree}, \hyperpage{23}
+    \subitem {Nmer}, \hyperpage{29}
+  \item {src/\+Nmer.\+cpp}, \hyperpage{46}
+  \item {src/ejemplo\+Ktree.\+cpp}, \hyperpage{44}
+
+  \indexspace
+
+  \item {Tiempo\+Comparativo}
+    \subitem {ejemplo\+Ktree.\+cpp}, \hyperpage{46}
+
+  \indexspace
+
+  \item {Union}
+    \subitem {Nmer}, \hyperpage{32}
+
+\end{theindex}

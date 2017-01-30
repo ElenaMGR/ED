@@ -1,0 +1,203 @@
+\hypertarget{ejemploKtree_8cpp}{}\subsection{Referencia del Archivo src/ejemplo\+Ktree.cpp}
+\label{ejemploKtree_8cpp}\index{src/ejemplo\+Ktree.\+cpp@{src/ejemplo\+Ktree.\+cpp}}
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$queue$>$}\\*
+{\ttfamily \#include $<$set$>$}\\*
+{\ttfamily \#include $<$utility$>$}\\*
+{\ttfamily \#include $<$random$>$}\\*
+{\ttfamily \#include $<$chrono$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include \char`\"{}ktree.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Nmer.\+h\char`\"{}}\\*
+\subsubsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , int K$>$ }\\vector$<$ T $>$ \hyperlink{ejemploKtree_8cpp_a512e0736b309ed242ee635c036823f90}{calcula\+\_\+padres} (typename \hyperlink{classktree}{ktree}$<$ T, K $>$\+::const\+\_\+node n)
+\item 
+{\footnotesize template$<$typename T , int K$>$ }\\void \hyperlink{ejemploKtree_8cpp_ad658af52bddfb159a19c49bab8be5910}{recorrido\+\_\+por\+\_\+niveles} (const \hyperlink{classktree}{ktree}$<$ T, K $>$ \&a)
+\item 
+{\footnotesize template$<$typename T , int K$>$ }\\void \hyperlink{ejemploKtree_8cpp_aafc935e3e17d6e285b3fe1b36e02f59a}{recorrido\+\_\+por\+\_\+niveles} (typename \hyperlink{classktree}{ktree}$<$ T, K $>$\+::const\+\_\+node n)
+\item 
+{\footnotesize template$<$typename T , int K$>$ }\\int \hyperlink{ejemploKtree_8cpp_ac6b63bf05ca874f6f68056e48d972302}{Altura} (const \hyperlink{classktree}{ktree}$<$ T, K $>$ \&arbol)
+\item 
+{\footnotesize template$<$typename T , int K$>$ }\\int \hyperlink{ejemploKtree_8cpp_a0df8260f4b2a173cce27a941d5fec42b}{Altura} (typename \hyperlink{classktree}{ktree}$<$ T, K $>$\+::const\+\_\+node n)
+\item 
+{\footnotesize template$<$typename T , int K$>$ }\\void \hyperlink{ejemploKtree_8cpp_a7ae38f4399966752d1ca1d20d24b63ac}{recorrido\+\_\+preorden} (const \hyperlink{classktree}{ktree}$<$ T, K $>$ \&arbol)
+\item 
+{\footnotesize template$<$typename T , int K$>$ }\\void \hyperlink{ejemploKtree_8cpp_a3d1d98c0cb0c8a52892b26d617bab009}{recorrido\+\_\+preorden} (typename \hyperlink{classktree}{ktree}$<$ T, K $>$\+::const\+\_\+node n)
+\item 
+{\footnotesize template$<$typename T , int K$>$ }\\void \hyperlink{ejemploKtree_8cpp_a37aa684934db54c0a2564873f636b18d}{recorrido\+\_\+inorden} (const \hyperlink{classktree}{ktree}$<$ T, K $>$ \&arbol)
+\item 
+{\footnotesize template$<$typename T , int  = 2$>$ }\\void \hyperlink{ejemploKtree_8cpp_a10aead449303c9c241ad1045a287018d}{recorrido\+\_\+inorden} (typename \hyperlink{classktree}{ktree}$<$ T, 2 $>$\+::const\+\_\+node n)
+\item 
+{\footnotesize template$<$typename T , int K$>$ }\\void \hyperlink{ejemploKtree_8cpp_a74cda70a458696251c8b2a963344487a}{listar\+\_\+hijos} (typename \hyperlink{classktree}{ktree}$<$ T, K $>$\+::node n)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{ejemploKtree_8cpp_a6fd0b8ba76207351d65a115b86b84c62}{insertar\+\_\+valor\+A\+BB} (\hyperlink{classktree}{ktree}$<$ T, 2 $>$ \&arbol, const T \&valor)
+\item 
+{\footnotesize template$<$typename T , int K$>$ }\\void \hyperlink{ejemploKtree_8cpp_a3755864b9267046c16364f7a590393c4}{Cambia\+Etiquetas} (typename \hyperlink{classktree}{ktree}$<$ T, K $>$\+::node n, const T \&antigua, const T \&nueva)
+\item 
+void \hyperlink{ejemploKtree_8cpp_a746189755e2170f3742cd9805bab1c72}{Tiempo\+Comparativo} (int tama)
+\item 
+int \hyperlink{ejemploKtree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Documentación de las funciones}
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!Altura@{Altura}}
+\index{Altura@{Altura}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{Altura(const ktree$<$ T, K $>$ \&arbol)}{Altura(const ktree< T, K > &arbol)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , int K$>$ int Altura (
+\begin{DoxyParamCaption}
+\item[{const {\bf ktree}$<$ T, K $>$ \&}]{arbol}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_ac6b63bf05ca874f6f68056e48d972302}{}\label{ejemploKtree_8cpp_ac6b63bf05ca874f6f68056e48d972302}
+
+
+Definición en la línea 59 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!Altura@{Altura}}
+\index{Altura@{Altura}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{Altura(typename ktree$<$ T, K $>$\+::const\+\_\+node n)}{Altura(typename ktree< T, K >::const_node n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , int K$>$ int Altura (
+\begin{DoxyParamCaption}
+\item[{typename {\bf ktree}$<$ T, K $>$\+::const\+\_\+node}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_a0df8260f4b2a173cce27a941d5fec42b}{}\label{ejemploKtree_8cpp_a0df8260f4b2a173cce27a941d5fec42b}
+
+
+Definición en la línea 65 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!calcula\+\_\+padres@{calcula\+\_\+padres}}
+\index{calcula\+\_\+padres@{calcula\+\_\+padres}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{calcula\+\_\+padres(typename ktree$<$ T, K $>$\+::const\+\_\+node n)}{calcula_padres(typename ktree< T, K >::const_node n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , int K$>$ vector$<$T$>$ calcula\+\_\+padres (
+\begin{DoxyParamCaption}
+\item[{typename {\bf ktree}$<$ T, K $>$\+::const\+\_\+node}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_a512e0736b309ed242ee635c036823f90}{}\label{ejemploKtree_8cpp_a512e0736b309ed242ee635c036823f90}
+
+
+Definición en la línea 22 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!Cambia\+Etiquetas@{Cambia\+Etiquetas}}
+\index{Cambia\+Etiquetas@{Cambia\+Etiquetas}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{Cambia\+Etiquetas(typename ktree$<$ T, K $>$\+::node n, const T \&antigua, const T \&nueva)}{CambiaEtiquetas(typename ktree< T, K >::node n, const T &antigua, const T &nueva)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , int K$>$ void Cambia\+Etiquetas (
+\begin{DoxyParamCaption}
+\item[{typename {\bf ktree}$<$ T, K $>$\+::node}]{n, }
+\item[{const T \&}]{antigua, }
+\item[{const T \&}]{nueva}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_a3755864b9267046c16364f7a590393c4}{}\label{ejemploKtree_8cpp_a3755864b9267046c16364f7a590393c4}
+
+
+Definición en la línea 172 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!insertar\+\_\+valor\+A\+BB@{insertar\+\_\+valor\+A\+BB}}
+\index{insertar\+\_\+valor\+A\+BB@{insertar\+\_\+valor\+A\+BB}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{insertar\+\_\+valor\+A\+B\+B(ktree$<$ T, 2 $>$ \&arbol, const T \&valor)}{insertar_valorABB(ktree< T, 2 > &arbol, const T &valor)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void insertar\+\_\+valor\+A\+BB (
+\begin{DoxyParamCaption}
+\item[{{\bf ktree}$<$ T, 2 $>$ \&}]{arbol, }
+\item[{const T \&}]{valor}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_a6fd0b8ba76207351d65a115b86b84c62}{}\label{ejemploKtree_8cpp_a6fd0b8ba76207351d65a115b86b84c62}
+
+
+Definición en la línea 146 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!listar\+\_\+hijos@{listar\+\_\+hijos}}
+\index{listar\+\_\+hijos@{listar\+\_\+hijos}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{listar\+\_\+hijos(typename ktree$<$ T, K $>$\+::node n)}{listar_hijos(typename ktree< T, K >::node n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , int K$>$ void listar\+\_\+hijos (
+\begin{DoxyParamCaption}
+\item[{typename {\bf ktree}$<$ T, K $>$\+::node}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_a74cda70a458696251c8b2a963344487a}{}\label{ejemploKtree_8cpp_a74cda70a458696251c8b2a963344487a}
+
+
+Definición en la línea 119 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!main@{main}}
+\index{main@{main}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{main()}{main()}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{}\label{ejemploKtree_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+Definición en la línea 244 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!recorrido\+\_\+inorden@{recorrido\+\_\+inorden}}
+\index{recorrido\+\_\+inorden@{recorrido\+\_\+inorden}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{recorrido\+\_\+inorden(const ktree$<$ T, K $>$ \&arbol)}{recorrido_inorden(const ktree< T, K > &arbol)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , int K$>$ void recorrido\+\_\+inorden (
+\begin{DoxyParamCaption}
+\item[{const {\bf ktree}$<$ T, K $>$ \&}]{arbol}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_a37aa684934db54c0a2564873f636b18d}{}\label{ejemploKtree_8cpp_a37aa684934db54c0a2564873f636b18d}
+
+
+Definición en la línea 102 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!recorrido\+\_\+inorden@{recorrido\+\_\+inorden}}
+\index{recorrido\+\_\+inorden@{recorrido\+\_\+inorden}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{recorrido\+\_\+inorden(typename ktree$<$ T, 2 $>$\+::const\+\_\+node n)}{recorrido_inorden(typename ktree< T, 2 >::const_node n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , int  = 2$>$ void recorrido\+\_\+inorden (
+\begin{DoxyParamCaption}
+\item[{typename {\bf ktree}$<$ T, 2 $>$\+::const\+\_\+node}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_a10aead449303c9c241ad1045a287018d}{}\label{ejemploKtree_8cpp_a10aead449303c9c241ad1045a287018d}
+
+
+Definición en la línea 108 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!recorrido\+\_\+por\+\_\+niveles@{recorrido\+\_\+por\+\_\+niveles}}
+\index{recorrido\+\_\+por\+\_\+niveles@{recorrido\+\_\+por\+\_\+niveles}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{recorrido\+\_\+por\+\_\+niveles(const ktree$<$ T, K $>$ \&a)}{recorrido_por_niveles(const ktree< T, K > &a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , int K$>$ void recorrido\+\_\+por\+\_\+niveles (
+\begin{DoxyParamCaption}
+\item[{const {\bf ktree}$<$ T, K $>$ \&}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_ad658af52bddfb159a19c49bab8be5910}{}\label{ejemploKtree_8cpp_ad658af52bddfb159a19c49bab8be5910}
+
+
+Definición en la línea 33 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!recorrido\+\_\+por\+\_\+niveles@{recorrido\+\_\+por\+\_\+niveles}}
+\index{recorrido\+\_\+por\+\_\+niveles@{recorrido\+\_\+por\+\_\+niveles}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{recorrido\+\_\+por\+\_\+niveles(typename ktree$<$ T, K $>$\+::const\+\_\+node n)}{recorrido_por_niveles(typename ktree< T, K >::const_node n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , int K$>$ void recorrido\+\_\+por\+\_\+niveles (
+\begin{DoxyParamCaption}
+\item[{typename {\bf ktree}$<$ T, K $>$\+::const\+\_\+node}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_aafc935e3e17d6e285b3fe1b36e02f59a}{}\label{ejemploKtree_8cpp_aafc935e3e17d6e285b3fe1b36e02f59a}
+
+
+Definición en la línea 40 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!recorrido\+\_\+preorden@{recorrido\+\_\+preorden}}
+\index{recorrido\+\_\+preorden@{recorrido\+\_\+preorden}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{recorrido\+\_\+preorden(const ktree$<$ T, K $>$ \&arbol)}{recorrido_preorden(const ktree< T, K > &arbol)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , int K$>$ void recorrido\+\_\+preorden (
+\begin{DoxyParamCaption}
+\item[{const {\bf ktree}$<$ T, K $>$ \&}]{arbol}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_a7ae38f4399966752d1ca1d20d24b63ac}{}\label{ejemploKtree_8cpp_a7ae38f4399966752d1ca1d20d24b63ac}
+
+
+Definición en la línea 81 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!recorrido\+\_\+preorden@{recorrido\+\_\+preorden}}
+\index{recorrido\+\_\+preorden@{recorrido\+\_\+preorden}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{recorrido\+\_\+preorden(typename ktree$<$ T, K $>$\+::const\+\_\+node n)}{recorrido_preorden(typename ktree< T, K >::const_node n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , int K$>$ void recorrido\+\_\+preorden (
+\begin{DoxyParamCaption}
+\item[{typename {\bf ktree}$<$ T, K $>$\+::const\+\_\+node}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_a3d1d98c0cb0c8a52892b26d617bab009}{}\label{ejemploKtree_8cpp_a3d1d98c0cb0c8a52892b26d617bab009}
+
+
+Definición en la línea 87 del archivo ejemplo\+Ktree.\+cpp.
+
+\index{ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}!Tiempo\+Comparativo@{Tiempo\+Comparativo}}
+\index{Tiempo\+Comparativo@{Tiempo\+Comparativo}!ejemplo\+Ktree.\+cpp@{ejemplo\+Ktree.\+cpp}}
+\paragraph[{\texorpdfstring{Tiempo\+Comparativo(int tama)}{TiempoComparativo(int tama)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tiempo\+Comparativo (
+\begin{DoxyParamCaption}
+\item[{int}]{tama}
+\end{DoxyParamCaption}
+)}\hypertarget{ejemploKtree_8cpp_a746189755e2170f3742cd9805bab1c72}{}\label{ejemploKtree_8cpp_a746189755e2170f3742cd9805bab1c72}
+
+
+Definición en la línea 203 del archivo ejemplo\+Ktree.\+cpp.
+

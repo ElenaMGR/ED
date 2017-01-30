@@ -1,0 +1,513 @@
+\begin{DoxyVersion}{Versión}
+v1 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Autor}
+Juan F. Huete y Carlos Cano
+\end{DoxyAuthor}
+\hypertarget{index_NOTA}{}\subsection{N\+O\+T\+A I\+M\+P\+O\+R\+T\+A\+N\+TE}\label{index_NOTA}
+Esta práctica es individual, por lo que el alumno debe incluir una nota en la misma indicando que no ha utilizado material de otros compañeros o compañeras para su resolución.
+
+En esta práctica deben serguirse los principios de compilación separada para las clases que no utilicen templates.
+
+El alumno podrá dotar al tipo de dato de otros métodos que considere necesarios para la correcta realización de la práctica, pero debe respetar escrupulosamente la cabecera de los métodos detallados en este documento.\hypertarget{index_generar}{}\subsection{Generar Documentación}\label{index_generar}
+La práctica se entrega con un fichero pdf que contiene toda documentación así como un fichero .zip que contiene todos los ficheros necesarios para su realización. Al descomprimir el fichero nos encontraremos con un fichero Makefile y los siguientes directorios\+:
+
+\begin{DoxyItemize}
+\item bin $<$-- Directorio de ejecutables \item datos $<$-- Directorio donde se encuentran los ficheros de datos necesarios para la correcta ejecución de la misma \item doc $<$-- Directorio para la documentación de la práctia \item include $<$-- Donde se incluyen los ficheros cabecera .h, \item lib $<$-- Directorio de bibliotecas \item obj $<$-- Directorio de código objeto \item src $<$-- Donde se localizan los fuentes\end{DoxyItemize}
+Para generar la documentación es necesario ejecutar 
+\begin{DoxyCode}
+make documentacion
+\end{DoxyCode}
+
+
+como resultado tendremos que la documentación (en versión html) se generará en el directorio {\ttfamily doc/html} y en versión latex se genera en {\ttfamily doc/latex}.
+
+Para obtener el ejecutable podemos hacer
+
+
+\begin{DoxyCode}
+make clean
+make
+\end{DoxyCode}
+ que nos generá el ejecutable en el directorio {\ttfamily bin}, que podremos ejecutar 
+\begin{DoxyCode}
+cd bin
+./ejemploKtree
+\end{DoxyCode}
+\hypertarget{index_intro_sec}{}\subsection{Introducción}\label{index_intro_sec}
+Un n-\/mer o n-\/grama se define como todas las posibles subcadenas de longitud n contenidas en una cadena \mbox{[}1\mbox{]}. En genética computacional, los n-\/mers son todas las posibles subsecuencias (de longitud igual a n) de una cadena de A\+DN (donde los nucleótidos posibles son A, G, C, T). El número máximo de n-\/mers diferentes de longitud n en una cadena de A\+DN será pues de 4$^\wedge$n.
+
+El siguiente ejemplo muestra una lista de n-\/mers (para la longitud n especificada) obtenida de una secuencia de A\+DN\+: 
+\begin{DoxyCode}
+Secuencia:     AGATCGAGTG
+3-mers: AGA GAT ATC TCG CGA GAG AGT GTG
+
+Secuencia :     GTAGAGCTGTAG
+5-mers: GTAGA TAGAG AGAGC GAGCT AGCTG GCTGT CTGTA TGTAG
+\end{DoxyCode}
+
+
+El conteo de n-\/mers para una secuencia de A\+DN es de especial interés en genética computacional porque estudios científicos muestran que estas distribuciones de n-\/mers caracterizan la especie a la que pertenece ese A\+DN (ver, por ejemplo, \mbox{[}2\mbox{]}). Es decir, a partir del conteo de n-\/mers de una secuencia de A\+DN dada (si la secuencia es lo bastante larga y el valor de n es suficientemente elevado), podríamos identificar la especie de la que procede ese A\+DN.
+
+El problema del conteo de n-\/mers para una secuencia de A\+DN se puede definir como recontar cuántas veces aparece cada n-\/mer en la secuencia. En nuestro caso, nos interesará recontar cuántas veces aparece cada n-\/mer de longitud 1,2,...,n en la secuencia, es decir, para un valor dado de n, contaremos la frecuencia de sus 1-\/mers, 2-\/mers, 3-\/mers, ... , hasta n-\/mers. El siguiente ejemplo muestra el conteo de n-\/mers de longitud 1 hasta 5 en una secuencia de A\+DN\+: 
+\begin{DoxyCode}
+Secuencia :     GTAGAGCTGTAG
+1-mers: G:5 T:3 A:3 C:1
+2-mers: GT:2 TA:2 AG:3 GA:1 GC:1 CT:1 TG:1
+3-mers: GTA:2 TAG:2 AGA:1 GAG:1 AGC:1 GCT:1 CTG:1 TGT:1
+4-mers: GTAG:2 TAGA:1 AGAG:1 GAGC:1 AGCT:1 GCTG: 1 CTGT:1 TGTA:1
+5-mers: GTAGA:1 TAGAG:1 AGAGC:1 GAGCT:1 AGCTG:1 GCTGT:1 CTGTA:1 TGTAG:1
+\end{DoxyCode}
+
+
+En esta práctica proponemos que el estudiante desarrolle el T\+DA \hyperlink{classNmer}{Nmer} para realizar el conteo de n-\/mers de longitud 1,2,...,n para una secuencia dada de A\+DN (ver sección \hyperlink{index_Nmer}{Implementación del T\+DA Nmer.}). Para ello, el estudiante debe utilizar el T\+DA ktree (ver sección \hyperlink{index_ktreegen}{Representando un Nmer como un ktree}). Una vez programado, el T\+DA \hyperlink{classNmer}{Nmer} se aplicará a la resolución de un problema real de biología computacional\+: se pondrán a disposición del estudiante secuencias reales de A\+DN de distintas especies, y el estudiante deberá determinar qué especies son más parecidas entre sí en base al recuento de los n-\/mers más frecuentes (ver sección \hyperlink{index_problemaBiologia}{Método 6 -\/$>$ float Distance(\+Nmer) \+: Aplicación del T\+DA Nmer a la caracterización del genoma de distintas especies.}).\hypertarget{index_Nmer}{}\subsection{Implementación del T\+D\+A Nmer.}\label{index_Nmer}
+La primera tarea a la que se enfrenta el estudiante es la implementación del T\+DA \hyperlink{classNmer}{Nmer}. Su especificación se detalla a continuación\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }\hyperlink{classNmer}{Nmer} \{
+  \hyperlink{classNmer_ac2a651dd05b03e716b877c26386d772e}{Nmer}();
+  \hyperlink{classNmer_ac2a651dd05b03e716b877c26386d772e}{Nmer}(\textcolor{keyword}{const} \hyperlink{classNmer}{Nmer} & a);
+
+  
+  \textcolor{keywordtype}{void} \hyperlink{classNmer_a1ce1c0cb174d94685c7234f58f9dc119}{list\_Nmer}( ) \textcolor{keyword}{const}; \textcolor{comment}{// lista todos los Nmer del árbol siguiendo un recorrido en preorden;}
+
+  \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \hyperlink{classNmer_a60e2335600c01ee39e865790015818f0}{length}() \textcolor{keyword}{const}; \textcolor{comment}{// Devuelve la longitud máxima de los Nmers almacenados}
+
+  \hyperlink{classNmer_a1b8892df885de3ac91edf3abd8f1b55d}{size\_type} \hyperlink{classNmer_accdea65838fcd53c48a2d05f6809643f}{size}() \textcolor{keyword}{const}; \textcolor{comment}{// Devuelve el número de Nmers distintos almacenados}
+
+  \hyperlink{classNmer}{Nmer} &  \hyperlink{classNmer_a129843cfe04a63a199ac641117c052cc}{operator=}(\textcolor{keyword}{const} \hyperlink{classNmer}{Nmer} & a);  \textcolor{comment}{// operador de asignacion}
+
+  \hyperlink{classNmer}{Nmer} \hyperlink{classNmer_adf184ca659cf3ce3f2db301acae40e56}{Prefix}(\textcolor{keywordtype}{string} adn); \textcolor{comment}{// Devuelve el Nmer (subarbol) asociado a un prefijo. Por ejemplo, si
+       adn es "ACT", devuelve el Nmer que representa todas las subcadenas que empiezan por "ACT" (ACT*)}
+
+  \hyperlink{classNmer}{Nmer} \textcolor{keyword}{union}(\textcolor{keyword}{const} \hyperlink{classNmer}{Nmer} reference);\textcolor{comment}{// Se devuelve un Nmer donde para cada nodo (representa una
+       secuencia) se computa la suma de las frecuencias en *this y en referencia, }
+
+  \textcolor{keywordtype}{bool} \hyperlink{classNmer_a3aa6c3d317ab01bd6b8c53434f50d03f}{containsString}(\textcolor{keyword}{const} \textcolor{keywordtype}{string} adn) \textcolor{keyword}{const}; \textcolor{comment}{// Devuelve true si la cadena adn está
+       representada en el árbol. }
+
+  \textcolor{keywordtype}{bool} \hyperlink{classNmer_ac5af1362b3f8ef4141574e62bc3510ac}{included}(\textcolor{keyword}{const} \hyperlink{classNmer}{Nmer} reference) \textcolor{keyword}{const}; \textcolor{comment}{// Devuelve true si cada nodo de *this está
+       también representado en reference, es decir, si todas las secuencias representadas en el árbol de *this están
+       también incluidas en reference. False en otro caso.}
+
+  ...
+ 
+  \textcolor{comment}{//El resto de cabeceras se describe en otra sección de este documento: }
+
+  \textcolor{keywordtype}{void} \hyperlink{classNmer_a4c29aa3845d91b09f8e0bc3517ca4ec6}{sequenceADN}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} l, \textcolor{keyword}{const} \textcolor{keywordtype}{string} & adn);  
+
+  \textcolor{keywordtype}{bool} \hyperlink{classNmer_a418c016bb6e04d2f699ddb694ee0221f}{loadSerialized}(\textcolor{keyword}{const} \textcolor{keywordtype}{string} nombre\_fichero);
+ 
+  \textcolor{keywordtype}{float}  \hyperlink{classNmer_a8df2f2f355423b02413e5e29dc5639e8}{Distance}(\textcolor{keyword}{const} \hyperlink{classNmer}{Nmer} & x);
+
+  set<pair<string,int>,\hyperlink{classOrdenCre}{OrdenCre} > \hyperlink{classNmer_a8120d82bd305662b814bdcdb30698989}{rareNmer}(\textcolor{keywordtype}{int} threshold); 
+
+  set<pair<string,int>,ordenDecre > \hyperlink{classNmer_aabaa2a3f2761170b5cbee0e822805de8}{commonNmer}(\textcolor{keywordtype}{int} threshold);
+
+  set<pair<string,int>, ordenCrec > \hyperlink{classNmer_a97de70ffe49a0457e87ed249251b9c14}{level}(\textcolor{keywordtype}{int} l);
+
+  ...
+\}
+\end{DoxyCode}
+
+
+El alumno podrá dotar al tipo de dato de otros métodos que considere necesarios para la correcta realización de la práctica, pero debe respetar escrupulosamente la cabecera de los métodos detallados anteriormente.
+
+Para la implementación del T\+DA \hyperlink{classNmer}{Nmer} debemos hacer uso de T\+DA ktree (ver sección \hyperlink{index_ktreegen}{Representando un Nmer como un ktree}).\hypertarget{index_secKtree}{}\subsection{Árboles ktree}\label{index_secKtree}
+Una de las desventajas de usar un vector o lista enlazada para almacenar datos es el tiempo necesario para buscar un elemento. Puesto que tanto vectores como listas enlazadas son estructuras lineales, el tiempo requerido para buscar una lista \char`\"{}lineal\char`\"{} es proporcional al tamaño del conjunto de datos, esto es O(n). Una alternativa para resolver este problema es considerar un conjunto ordenado de elementos, pero igualmente ambas estructuras tienen comportamiento ineficiente cuando tenemos que abordar las tareas de inserción y borrado de elementos (O(n)).
+
+Este comportamiento no es aceptable en el mundo de hoy, donde la velocidad a la que realizamos las operaciones es extremadamente importante. El tiempo es dinero. Por lo tanto, parece que se necesitan estructuras de datos mejores (más eficientes) para almacenar y buscar datos.
+
+En esta práctica analizaremos cómo una estructura de datos árbol nos puede ayudar a resolver algunos de nuestros problemas. Un árbol es una colección de nodos conectados formando una estructura jerárquica (y por tanto no lineal) donde para cada nodo tiene un único padre y una lista de hijos.
+
+En principio, un nodo puede tener un número indeterminado de hijos, hablamos de árboles generales, pero en esta práctica nos centraremos en el estudio de un tipo particular de árboles, que denominaremos ktree$<$\+T,\+K$>$ y que tiene la siguiente características\+:
+
+\begin{DoxyItemize}
+\item Un nodo tiene entre 0 y k hijos, que se ubican en una posición dada por un índice, así hablamos del j-\/ésimo hijo, con 0$<$= j $<$ k \item Por ser un árbol, cada nodo del mismo tiene un único padre. \item Que exista el hijo j-\/ésimo no implica que tengan que existir los hijos anteriores, esto es, si k = 10 puede ocurrir que un nodo tenga los hijos segundo, quinto y séptimo. El resto de sus descendientes pueden estar vacíos.\end{DoxyItemize}
+\hypertarget{index_tdaktree}{}\subsubsection{T\+D\+A ktree$<$\+T,\+K$>$}\label{index_tdaktree}
+Se ha diseñado un T\+DA ktree (la documentación está adjunta con esta práctica). El tipo ktree tiene dos parámetros plantilla, ktree$<$\+T,\+K$>$, donde T representa al tipo de dato que se almacena en el nodo y K es un entero que representa el número máximo de hijos que se permiten en cada nodo. Es constante para todo el tipo.
+
+Por ejemplo\+:
+
+
+\begin{DoxyCode}
+\hyperlink{classktree}{ktree<int,4>} a; \textcolor{comment}{// árbol de enteros con 4 hijos como máximo}
+\hyperlink{classktree}{ktree<string,7>} b; \textcolor{comment}{// árbol de cadenas con 7 hijos como máximo}
+\hyperlink{classktree}{ktree<int,2>} c; \textcolor{comment}{//árbol de enteros con 2 hijos como máximo (es un árbol binario)}
+\end{DoxyCode}
+
+
+Indicar que a y c pertenecen a tipos distintos, esto es ktree$<$int,4$>$ es un tipo distinto de ktree$<$int,2$>$.
+
+Cuando trabajamos con el T\+DA ktree tenemos definidos los siguientes \begin{DoxyItemize}
+\item ktree$<$\+T,\+K$>$ -\/$>$ Representa el árbol \item ktree$<$\+T,\+K$>$\+::node -\/$>$ Representa un nodo del árbol \item ktree$<$\+T,\+K$>$\+::const\+\_\+node -\/$>$ Representa un nodo constante del árbol (no podemos modificar su contenido) \item \hyperlink{classktree_1_1node_afa2e7c16e38c1a4a062930d167b02a7f}{ktree$<$\+T,\+K$>$\+::node\+::child\+\_\+iterator} -\/$>$ Iterador sobre los hijos (no nulos) de un nodo \item \hyperlink{classktree_1_1const__node_afa2e7c16e38c1a4a062930d167b02a7f}{ktree$<$\+T,\+K$>$\+::const\+\_\+node\+::child\+\_\+iterator} -\/$>$ Iterador sobre los hijos (no nulos) de un nodo constante\end{DoxyItemize}
+Así por ejemplo, la figura siguiente representa un ktree$<$char,5$>$
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=10cm]{ktree_ejemplo}
+\caption{Ejemplo de ktree}
+\end{DoxyImage}
+
+
+
+\begin{DoxyCode}
+\hyperlink{classktree}{ktree<char,5>} arbol;
+\hyperlink{classktree_1_1node}{ktree<char,5>::node} n, nodo;
+n = arbol.\hyperlink{classktree_a2d252651d05d9a107c009fcfdfc91df4}{root}();
+cout << *n \textcolor{comment}{// Nos imprime A}
+nodo = n.\hyperlink{classktree_1_1node_adcb69c2caed252b51d400f4237c1f472}{k\_child}(4); \textcolor{comment}{// <- Apunta al nodo con etiqueta D}
+
+\textcolor{keywordflow}{for} (\hyperlink{classktree_1_1node_1_1child__iterator}{ktree<char,5>::node::child\_iterator} ith : n)
+  cout<< *(*ith) << endl; \textcolor{comment}{// <--  Imprime los hijos no nulos de n, esto es B,C,D}
+                              \textcolor{comment}{//  *ith es el nodo hijo, *(*ith) es la etiqueta que hay dentro de dicho
+       nodo.}
+\end{DoxyCode}
+
+
+Con el guión se entrega un código que ilustra el uso de ktree para distintos problemas (fichero {\ttfamily \hyperlink{ejemploKtree_8cpp}{ejemplo\+Ktree.\+cpp}}), como por ejemplo recorridos, cálculo de la altura de un ktree, inserción en un árbol binario de búsqueda representado mediante un ktree$<$int,2$>$, etc.
+
+Este código, una vez compilado, debe ejecutarse desde la carpeta {\ttfamily bin}\+:
+
+
+\begin{DoxyCode}
+cd bin 
+./ejemploKtree 
+\end{DoxyCode}
+\hypertarget{index_implem}{}\subsubsection{Implementación}\label{index_implem}
+Puesto que conocemos el número máximo de hijos de un nodo, fijo en todo momento, podemos acceder a ellos considerando un acceso aleatorio. Esto es consultar el hijo j-\/ésimo en orden constante. Para ello, se implementa un nodo usando la siguiente estructura,
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{struct }celdaArbol \{
+  T etiqueta;
+  celdaArbol * padre;
+  celdaArbol * hijos[K];
+\};
+\end{DoxyCode}
+
+
+donde \begin{DoxyItemize}
+\item etiqueta representa a la etiqueta almacenada en el nodo \item padre es un puntero a la celda\+Arbol que contiene al padre de dicho nodo \item hijos es un array de tamaño fijo, K, donde en cada posición almacenamos un puntero al hijo j-\/ésimo (0$<$=j$<$K) del nodo en el árbol\end{DoxyItemize}
+Considerando esta información un árbol ktree se implementará como un puntero a la celda que contiene el nodo raíz del mismo.
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{template} <\textcolor{keyword}{typename} T, \textcolor{keywordtype}{int} K> 
+\textcolor{keyword}{class }\hyperlink{classktree}{ktree} \{
+  \textcolor{keyword}{public}:
+   \hyperlink{classktree_a70c8511d0c0fc199f341065fab0aa0ad}{ktree}();
+   ....
+  \textcolor{keyword}{private}:
+    celdaArbol * laraiz;
+\};
+\end{DoxyCode}
+
+
+Como hemos comentado el T\+DA ktree contiene los siguientes tipos definidos
+
+\begin{DoxyItemize}
+\item ktree$<$\+T,\+K$>$\+::node -\/$>$ Representa un nodo del árbol \item ktree$<$T;K$>$\+::const\+\_\+node -\/$>$ Representa un nodo constante (no podemos modificar su contenido) en el árbol\end{DoxyItemize}
+Donde para cada nodo (node o const\+\_\+node), su representación interna no será mas que un puntero a la celda del árbol a la que apunta, diferenciándose en el tipo de operaciones (especificación) que permiten realizar sobre el mismo (ver documentación asociada).
+
+Si consideramos los iteradores, esto es,
+
+\begin{DoxyItemize}
+\item \hyperlink{classktree_1_1node_afa2e7c16e38c1a4a062930d167b02a7f}{ktree$<$\+T,\+K$>$\+::node\+::child\+\_\+iterator} -\/$>$ Iterador sobre los hijos no nulos de un nodo \item \hyperlink{classktree_1_1const__node_afa2e7c16e38c1a4a062930d167b02a7f}{ktree$<$\+T,\+K$>$\+::const\+\_\+node\+::child\+\_\+iterator} -\/$>$ Iterador sobre los hijos no nulos de un nodo constante\end{DoxyItemize}
+Ambos iteradores tienen una representación un poco más compleja, al considerar tanto el nodo sobre el que queremos iterar como el hijo en el que ubica en este momento.
+
+La siguiente imagen ilustra la representación interna del ktree.
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=10cm]{ktree_estructura}
+\caption{Atributos de la clase ktree}
+\end{DoxyImage}
+\hypertarget{index_ktreegen}{}\subsection{Representando un Nmer como un ktree}\label{index_ktreegen}
+\hypertarget{index_rep}{}\subsubsection{Representación}\label{index_rep}
+Podemos representar todos los \hyperlink{classNmer}{Nmer} hasta una determinada longitud mediante un ktree. Para ello, en cada nodo se almacenará un char que representa a una base (A,G,C,T), excepto el nodo raíz que almacena un char nulo, por ejemplo \textquotesingle{}-\/\textquotesingle{}.
+
+El camino que existe desde la raíz del ktree hasta un nodo n en el nivel l codificará una subsecuencia de bases consecutivas en la cadena de tamaño l. Por ejemplo, supongamos la cadena \char`\"{}\+A\+T\+A\+C\+A\+T\+C\+A\+T\+T\+G\+T\+G\+G\char`\"{}. Las distintas subsecuencias (de tamaños 1 a 3) que nos pueden aparecer son\+:
+
+\begin{DoxyItemize}
+\item Tamaño 1\+: A; G; C; T \item Tamaño 2\+: AC; AT; GG; GT; CA; TA; TG; TC; TT \item Tamaño 3\+: A\+CA; A\+TA; A\+TC; A\+TT; G\+TG; C\+AT; T\+AC; T\+GG; T\+GT; T\+CA; T\+TG\end{DoxyItemize}
+Por tanto, cada nodo del árbol tendrá como máximo 4 descendientes director (hijos) que representan las posibles bases que pueden aparecer en la cadena para formar las subsecuencias de tamaño l+1, asociando cada uno a una base distinta de la siguiente forma
+
+\begin{DoxyItemize}
+\item A -\/$>$ hijo 0\end{DoxyItemize}
+\begin{DoxyItemize}
+\item G -\/$>$ hijo 1\end{DoxyItemize}
+\begin{DoxyItemize}
+\item C-\/$>$ hijo 2\end{DoxyItemize}
+\begin{DoxyItemize}
+\item T-\/$>$ hijo 3\end{DoxyItemize}
+No olvidemos que, además de identificar las subsecuencias, estamos interesados el contar el número de veces que se repita cada una de ellas en la cadena. Para ello, es suficiente con incluir también en cada nodo del árbol un valor entero que codifique dicha información. Así, la clase \hyperlink{classNmer}{Nmer} se puede representar como se indica\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }\hyperlink{classNmer}{Nmer} \{
+  \textcolor{keyword}{public}:
+    \hyperlink{classNmer_ac2a651dd05b03e716b877c26386d772e}{Nmer}();
+    ....
+  \textcolor{keyword}{private}:
+    \hyperlink{classktree}{ktree<pair<char,int>},4> el\_Nmer; \textcolor{comment}{// subsecuencias }
+    \textcolor{keywordtype}{int} max\_long; \textcolor{comment}{// Mayor longitud de la cadena representada, esto es, el nivel máximo del árbol}
+  
+
+\};
+\end{DoxyCode}
+
+
+La siguiente figura muestra un subconjunto del árbol para una longitud de subcadena máxima de 3 (max\+\_\+long = 3) que se obtiene cunado consideramos la cadena \char`\"{}\+A\+T\+A\+C\+A\+T\+C\+A\+T\+T\+G\+T\+G\+G\char`\"{}, la lista todas las posibles subcadenas (junto a su frecuencia es\+: A 4; AC 1; A\+CA 1; AT 3; A\+TA 1; A\+TC 1; A\+TT 1; C 2; CA 2; C\+AT 2; G 5; GG 2; GT 1; G\+TG 1; T 5; TA 1; T\+AC 1; TC 1; T\+CA 1; TG 2; T\+GG 1; T\+GT 1; TT 1; T\+TG 1).
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=10cm]{ktree_cadena}
+\caption{Cadena de A\+DN $<$A\+T\+A\+C\+A\+T\+C\+A\+T\+T\+G\+T\+GG$>$ representada como un ktree}
+\end{DoxyImage}
+\hypertarget{index_otrosMetodos}{}\subsection{¿\+Cómo implementar algunos de los métodos en Nmer?}\label{index_otrosMetodos}
+En esta sección presentaremos con mas detalle el comportamiento de algunos de los métodos de la clase \hyperlink{classNmer}{Nmer} que hay que implementar. Estos métodos permiten abordar distintos problemas de interés en genética computacional. Recordemos que son los métodos\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{class }\hyperlink{classNmer}{Nmer} \{
+  ...
+
+  \textcolor{keyword}{public}:
+
+   \textcolor{keywordtype}{void} \hyperlink{classNmer_a4c29aa3845d91b09f8e0bc3517ca4ec6}{sequenceADN}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} tama, \textcolor{keyword}{const} \textcolor{keywordtype}{string} & adn);  \textcolor{comment}{// Construir Nme a partir de cadena
+       de ADN}
+
+   \textcolor{keywordtype}{bool} \hyperlink{classNmer_a418c016bb6e04d2f699ddb694ee0221f}{loadSerialized}(\textcolor{keyword}{const} \textcolor{keywordtype}{string} nombre\_fichero); \textcolor{comment}{// Leer fichero serializado que
+       representa a un Nmer }
+
+   set<pair<string,int>,\hyperlink{classOrdenCre}{OrdenCre} > \hyperlink{classNmer_a8120d82bd305662b814bdcdb30698989}{rareNmer}(\textcolor{keywordtype}{int} threshold); \textcolor{comment}{// devuelve la lista de todas
+       las subcadenas (no prefijo) que  aparecen menos de threshold veces en el Nmer ordenadas en orden creciente de
+       frecuencia}
+
+   set<pair<string,int>,ordenDecre > \hyperlink{classNmer_aabaa2a3f2761170b5cbee0e822805de8}{commonNmer}(\textcolor{keywordtype}{int} threshold); \textcolor{comment}{// Devuelve la lista de las
+       cadenas de longitud mayor posible (no prefijo)  que aparecen más de threshold veces en el Nmer, ordenadas en
+       orden decreciente de frecuencia}
+  
+   set<pair<string,int>, ordenCrec > \hyperlink{classNmer_a97de70ffe49a0457e87ed249251b9c14}{level}(\textcolor{keywordtype}{int} l); \textcolor{comment}{// Devuelve el conjunto de Nmers de longitud exacta
+       l.}
+
+   \textcolor{keywordtype}{float}  \hyperlink{classNmer_a8df2f2f355423b02413e5e29dc5639e8}{Distance}(\textcolor{keyword}{const} \hyperlink{classNmer}{Nmer} & x);  \textcolor{comment}{// Distancia entre  dos Nmer}
+
+  ...
+\}
+\end{DoxyCode}
+
+
+El alumno podrá dotar al tipo de dato de otros métodos que considere necesarios para la correcta realización de la práctica, pero debe respetar escrupulosamente la cabecera de los métodos detallados anteriormente.\hypertarget{index_crear}{}\subsubsection{Método 1 -\/$>$  Nmer\+::sequence\+A\+D\+N(tama, adn) \+: Obteniendo los Nmers a partir de una cadena de A\+DN}\label{index_crear}
+El primer problema que nos tendremos que plantear a la hora de solucionar la práctica es el poder construir el ktree que representa los distintos Nmers. Como ya hemos comentado, utilizaremos un ktree con valor k=4, donde en cada nodo almacenamos no sólo la base, sino también su frecuencia dentro de la cadena de A\+DN. En cierto sentido, el nodo en el nivel i-\/ésimo representa un \hyperlink{classNmer}{Nmer} de longitud i (dicho \hyperlink{classNmer}{Nmer} se obtiene al considerar, en orden inverso, el camino que hay desde dicho nodo a la raíz del árbol). Recordad que en cada nodo almacenamos no sólo la base, sino también el contador que nos indica las ocurrencias del \hyperlink{classNmer}{Nmer} que representa el nodo en la secuencia de A\+DN.
+
+En esta sección trataremos de ilustrar de forma detallada cómo podemos construir a partir de la secuencia el árbol de Nmers, esto es, nuestro ktree. Para ello consideraremos dos métodos, el primero, sequence\+A\+DN, que se encarga de recorrer la cadena de A\+DN para extraer una a una todas las subcadenas de longitud tama de que se extraen los distintos Nmers a insertar, y el segundo es un método privado, insertar\+\_\+cadena, que dada una subsecuencia de tamaño tama se encarga de insertar los \char`\"{}tama\char`\"{} Nmers, subsecuencias que empiezan en cadena\mbox{[}0\mbox{]} y con longitud 1 hata cadena.\+size(), en el árbol.
+
+Por ejemplo, si adn = \char`\"{}\+A\+T\+A\+C\+A\+T\+C\+A\+T\+T\+G\+T\+G\+G\char`\"{} y tama es 6, sequence\+A\+DN extraería las subsecuencias
+
+
+\begin{DoxyItemize}
+\item \char`\"{}\+A\+T\+A\+C\+A\+T\char`\"{}
+\item \char`\"{}\+T\+A\+C\+A\+T\+C\char`\"{}
+\item \char`\"{}\+A\+C\+A\+T\+C\+A\char`\"{}
+\item \char`\"{}\+C\+A\+T\+C\+A\+T\char`\"{}
+\item ...
+\end{DoxyItemize}
+
+En pseudo-\/código, sequence\+A\+DN podría implementarse como sigue
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} \hyperlink{classNmer_a4c29aa3845d91b09f8e0bc3517ca4ec6}{Nmer::sequenceADN}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} tama, \textcolor{keyword}{const} \textcolor{keywordtype}{string} & adn)\{
+
+Inicializamos el árbol poniendo la  etiqueta (\textcolor{charliteral}{'-'},0) en el nodo raíz 
+
+    Para cada uno de las posiciones, i,  de la cadena \{
+       Obtenemos un substring de tamaño tama que empiece en adn[i];
+       insertar\_cadena(subcadena);
+     \}
+\}
+\end{DoxyCode}
+
+
+Si nos centramos en cada una de las cadenas, insertar\+\_\+cadena permite considerar los Nmers que empiezan en cadena.\+begin(). Por ejemplo, considerando un tamaño hasta 6, los distintos Nmers para \char`\"{}\+A\+T\+A\+C\+A\+T\char`\"{} son\+:
+
+
+\begin{DoxyEnumerate}
+\item \char`\"{}\+A\char`\"{}
+\item \char`\"{}\+A\+T\char`\"{}
+\item \char`\"{}\+A\+T\+A\char`\"{}
+\item \char`\"{}\+A\+T\+A\+C\char`\"{}
+\item \char`\"{}\+A\+T\+A\+C\+A\char`\"{}
+\item \char`\"{}\+A\+T\+A\+C\+A\+T\char`\"{}
+\end{DoxyEnumerate}
+
+El esquema del algoritmo insertar\+\_\+cadena es el siguiente\+: avanzar por la cadena a la vez que descendemos por el árbol para actualizar los valores del \hyperlink{classNmer}{Nmer} que representa, como indica el siguiente pseudo-\/código\+:
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} insertar\_cadena(\textcolor{keyword}{const} \textcolor{keywordtype}{string} & cadena)\{
+
+posicionamos un nodo, n\_act, en la raiz del arbol.
+
+ \textcolor{comment}{//Este nodo n lo utilizamos para descender por el arbol}
+\textcolor{comment}{// cadena[i] nos indica el índice del nodo en el  nivel i+1;}
+\textcolor{comment}{// A -> hijo 0; G -> hijo 1; C-> hijo 2; T-> hijo 3}
+
+ Para cada uno de los caracteres, i, de la cadena \{
+    cadena[i] nos indica el índice del nodo en el  nivel i+1;
+    \textcolor{comment}{// si cadena[i] es : A -> hijo 0; G -> hijo 1; C-> hijo 2; T-> hijo 3}
+    si n\_act tiene hijo en la posición dada por cadena[i] \{ \textcolor{comment}{// Ya esta insertado el nodo}
+      incrementamos el contador en 1;
+    \}
+    en caso contrario \{ \textcolor{comment}{//  No esta insertado el nodo}
+        insertamos el nuevo nodo en dicha posición con etiqueda cadena[i] y su contador a 1;
+    \}
+   descendemos en el árbol, haciendo que n\_act sea el nodo que representa cadena[i], esto es bajamos al 
+      hijo correspondiente;
+ \}
+
+\}
+\end{DoxyCode}
+
+
+Para finalizar, os entregamos el código que nos recorre el ktree en preorden, donde por ejemplo la acción sobre el hijo podría ser obtener el \hyperlink{classNmer}{Nmer} que representa el nodo. En este algoritmo, n será el nodo a partir del cual queremos realizar el recorrido en preorden\+:
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} \hyperlink{ejemploKtree_8cpp_a7ae38f4399966752d1ca1d20d24b63ac}{recorrido\_preorden}( \hyperlink{classktree}{ktree}<pair<char,int>,4>::node  n)\{
+
+\textcolor{keywordflow}{if} (!n.null())\{
+   < accion sobre el nodo n >
+   \textcolor{keywordflow}{for} ( \hyperlink{classktree_1_1node}{ktree<base,4>::node} hijo : n)
+     \hyperlink{ejemploKtree_8cpp_a7ae38f4399966752d1ca1d20d24b63ac}{recorrido\_preorden}(hijo);
+  \}
+\}
+\end{DoxyCode}
+\hypertarget{index_load}{}\subsubsection{Método 2 -\/$>$  Nmer\+::load\+Serialized(nombre)}\label{index_load}
+Por si el alumno tiene problema en la construcción del \hyperlink{classNmer}{Nmer}, se entrega este método ya implementado que a partir de un fichero serializado, con extensión .srl, y nos reconstruye el ktree que lo generó. Con la práctica se entregan algunos ejemplos de ficheros serializdos que podrán ser utilizados por el alumno para obtener distintos Nmers válidos, como por ejemplo cadena\+Simple.\+srl, cadenabos\+Taurus.\+srl o cadenamus\+Musculus.\+srl.
+
+Por tanto podremos utilizar este método para ir avanzando en la implementación de los otros métodos de la clase aun cuando no tengamos implementado el método que a partir de una cadena extree los Nmers, esto es, sequence\+A\+DN.
+
+Un ejemplo de cómo poder utilizar este método lo lo podemos encontrar en el fichero \hyperlink{ejemploKtree_8cpp}{ejemplo\+Ktree.\+cpp}\+:
+
+
+\begin{DoxyCode}
+\hyperlink{classNmer}{Nmer} prueba;
+prueba.\hyperlink{classNmer_a418c016bb6e04d2f699ddb694ee0221f}{loadSerialized}(\textcolor{stringliteral}{"cadenaSimple.srl"});
+cout << prueba.\hyperlink{classNmer_a60e2335600c01ee39e865790015818f0}{length}(); \textcolor{comment}{// devuelve 3}
+cout << prueba.\hyperlink{classNmer_accdea65838fcd53c48a2d05f6809643f}{size}(); \textcolor{comment}{// devuelve 24}
+prueba.\hyperlink{classNmer_a1ce1c0cb174d94685c7234f58f9dc119}{list\_Nmer}();  \textcolor{comment}{// Listaria todos los Nmers (desde longitud 1 hasta longitud prueba.length()}
+\end{DoxyCode}
+
+
+Sólo a nivel informativo, indicar que para poder reconvertir el fichero serializado necesitamos de un functor que nos permita transformar un string del tipo \char`\"{}\+A 45\char`\"{} o \char`\"{}x -\/1\char`\"{}, donde el primer elemento de la cadena es un char y el segundo un entero, en un objeto de tipo pair$<$char,int$>$. Dicho functor, se encuentra dentro de la parte privada de la clase \hyperlink{classNmer}{Nmer} con el nombre String2\+Base.
+
+El código para load\+Serialized (ya incluido en el {\ttfamily \hyperlink{Nmer_8cpp}{Nmer.\+cpp}}) es el siguiente\+:
+
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{bool} \hyperlink{classNmer_a418c016bb6e04d2f699ddb694ee0221f}{Nmer::loadSerialized}(\textcolor{keyword}{const} \textcolor{keywordtype}{string} & fichero) \{
+ \textcolor{keywordtype}{string} cadena;
+ ifstream fe;
+ pair<char,int> nulo(\textcolor{charliteral}{'x'},-1);
+ Nmer::String2Base stb;
+ 
+ fe.open(fichero.c\_str(), ifstream::in);
+   \textcolor{keywordflow}{if} (fe.fail())\{
+     cerr << \textcolor{stringliteral}{"Error al abrir el fichero "} << fichero << endl;
+   \} 
+   \textcolor{keywordflow}{else} \{
+    \textcolor{comment}{//leo la cabecera del fichero (líneas que comienzan con #)}
+    \textcolor{keywordflow}{do}\{ 
+      getline(fe,cadena,\textcolor{charliteral}{'\(\backslash\)n'}); 
+    \} \textcolor{keywordflow}{while} (cadena.find(\textcolor{stringliteral}{"#"})==0 && !fe.eof());
+    \textcolor{comment}{// leemos Nmer\_length}
+     max\_long = std::stoi(cadena);
+     \textcolor{comment}{// leemos cadena serializada}
+    getline(fe,cadena,\textcolor{charliteral}{'\(\backslash\)n'});
+    el\_Nmer.\hyperlink{classktree_a66d27ffb43b3c790370b45c0a8309534}{deserialize}(cadena,nulo,\textcolor{charliteral}{';'},stb); 
+    fe.close();
+    \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+  \} \textcolor{comment}{// else}
+  fe.close();
+  \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+ \}
+\end{DoxyCode}
+\hypertarget{index_rare}{}\subsubsection{Método 3 -\/$>$ set$<$pair$<$string,int$>$,\+Orden\+Cre $>$ Nmer\+::rare\+Nmer(threshold)}\label{index_rare}
+Este método devuelve la lista de todas las subcadenas (no prefijo) que aparecen un número menor o igual a threshold veces en el \hyperlink{classNmer}{Nmer}. Estas cadenas se almacenarán en el primer campo del par, mientras que en el segundo dispondremos de la frecuencia de aparición en la cadena de A\+DN de dicho \hyperlink{classNmer}{Nmer}. EL conjunto deberá estar ordenado en orden creciente de frecuencia, esto es las cadenas (por ejemplo, esto se utiliza para buscar peculiaridades en la secuencia de A\+DN).
+
+$<$bf$>$¿\+Qué es una cadena prefijo?\+:$<$/bf$>$ decimos que una cadena, x, es prefijo de otra, y, si x está completamente incluida en y empezando desde el principio. Por ejemplo x=\char`\"{}abcde\char`\"{} es prefijo de \char`\"{}abcdefg\char`\"{} pero no lo es de \char`\"{}sabcdefg\char`\"{}.
+
+Por tanto, si realizamos una llamada al método rare\+Nmer(4), esto es threshold es 4, y encontramos que el \hyperlink{classNmer}{Nmer} \char`\"{}\+A\+C\char`\"{} aparece 5 veces, \hyperlink{classNmer}{Nmer} \char`\"{}\+A\+C\+G\char`\"{} aparece 4 veces, el \hyperlink{classNmer}{Nmer} \char`\"{}\+A\+C\+G\+G\char`\"{} aparece 2 y \char`\"{}\+A\+C\+G\+T\char`\"{} aparece 1, como salida sólo nos debería devolver \char`\"{}\+A\+C\+G\+G\char`\"{} y \char`\"{}\+A\+C\+G\+T\char`\"{}, pues \char`\"{}\+A\+C\+G\char`\"{}, aun teniendo una frecuencia menor o igual que el threshold 4, es prefijo de al menos otra cadena de longitud mayor.\hypertarget{index_common}{}\subsubsection{Método 4 -\/$>$  set$<$pair$<$string,int$>$,orden\+Decre $>$ common\+Nmer(threshold)}\label{index_common}
+Devuelve la lista de las cadenas de longitud mayor posible (sin ser prefijo) que aparecen un número de veces mayor que de threshold veces en el \hyperlink{classNmer}{Nmer}, ordenadas en orden decreciente de frecuencia (se utiliza para buscar repeticiones mas comunes, por ejemplo cuando tratamos de comprimir una cadena de A\+DN). Al igual que antes, el conjunto de cadenas deberá estar ordenado, pero en este caso en orden decreciente, esto es, aparecen primero las maś frecuentes
+
+Por ejemplo, si consideramos que un \hyperlink{classNmer}{Nmer} contiene a \char`\"{}\+A\+C\char`\"{} que aparece 5 veces, a \char`\"{}\+A\+T\char`\"{} que aparece 5 veces, a \char`\"{}\+A\+C\+G\char`\"{} que aparece 4 veces, \char`\"{}\+A\+C\+T\char`\"{} que aparece 4 veces, \char`\"{}\+A\+T\+G\char`\"{} que aparece 3 veces \char`\"{}\+A\+C\+G\+G\char`\"{} que aparece 2 y \char`\"{}\+A\+C\+G\+T\char`\"{} que aparece 1, una llamada a {\ttfamily common\+Nmer(3)} dará como salida \char`\"{}\+A\+T\char`\"{}, \char`\"{}\+A\+C\+G\char`\"{} y \char`\"{}\+A\+C\+T\char`\"{}. En este caso \char`\"{}\+A\+C\char`\"{}, aun teniendo una frecuencia mayor que el threshold 4, es prefijo de al menos otra cadena de longitud mayor.\hypertarget{index_level}{}\subsubsection{Método 5 -\/$>$ set$<$pair$<$string,int$>$, orden\+Crec $>$ level(l);}\label{index_level}
+Este método nos devuelve únicamente los Nmers de longitud l, ordenados en orden creciente de frecuencia.
+
+Por ejemplo, si consideramos que un \hyperlink{classNmer}{Nmer} contiene a \char`\"{}\+A\+C\char`\"{} que aparece 5 veces, a \char`\"{}\+A\+T\char`\"{} que aparece 5 veces, a \char`\"{}\+A\+C\+G\char`\"{} que aparece 4 veces, \char`\"{}\+A\+C\+T\char`\"{} que aparece 4 veces, \char`\"{}\+A\+T\+G\char`\"{} que aparece 3 veces \char`\"{}\+A\+C\+G\+G\char`\"{} que aparece 2 y \char`\"{}\+A\+C\+G\+T\char`\"{} que aparece 1, una llamada a {\ttfamily level(3)} dará como salida \char`\"{}\+A\+T\+G\char`\"{}, \char`\"{}\+A\+C\+G\char`\"{} y \char`\"{}\+A\+C\+T\char`\"{} y , con frecuencia 3, 4 y 4, respectivamente.\hypertarget{index_problemaBiologia}{}\subsubsection{Método 6 -\/$>$ float Distance(\+Nmer) \+: Aplicación del T\+D\+A Nmer a la caracterización del genoma de distintas especies.}\label{index_problemaBiologia}
+Una vez programado el T\+DA \hyperlink{classNmer}{Nmer} descrito en las secciones anteriores, proponemos que el estudiante aplique este T\+DA a un problema real\+: la identificación de especies en base a los Nmers de una secuencia de A\+DN. Para ello, se proporciona al estudiante extractos reales de longitud 10.\+000 de cadenas de A\+DN del genoma de 10 especies animales (ficheros {\ttfamily datos/1.\+txt}, {\ttfamily datos/2.\+txt}, ..., {\ttfamily datos/10.\+txt}). El estudiante debe construir un objeto \hyperlink{classNmer}{Nmer} para representar cada una de estas 10 secuencias de A\+DN. Una vez creados los Nmers, el estudiante deberá implementar una métrica para medir la distancia entre estos Nmers para identificar cuáles son las cadenas más parecidas entre sí. El fichero {\ttfamily datos/genomas disponibles.\+txt} muestra a qué especie corresponde cada cadena de A\+DN. Si los métodos están bien implementados y el tamaño de N es suficientemente elevado (recomendamos probar valores de N$>$=10), los resultados deben ir acordes a la distancia evolutiva entre las especies \mbox{[}3\mbox{]}\+: por ejemplo, las cadenas humanas serán más parecidas entre sí o a las de ratón que a las de gusano. En cualquier caso, nuestros resultados pueden fluctuar dado que estamos considerando extractos de longitud reducida (10.\+000 bases es un tamaño reducido dado el tamaño total de los genomas considerados).\hypertarget{index_dist}{}\paragraph{Cálculo de la Distancia}\label{index_dist}
+En esta sección detallaremos cómo se calcula la distancia entre dos Nmers. Para ello consideremos el siguiente ejemplo donde trataremos de buscar la distancia entre los Nmers, nmX e nmY, asociados a considerar dos cadenas de A\+DN, adnX y adnY, respectivamente. Ilustraremos cómo sería al proceso para calcular 
+\begin{DoxyCode}
+nmX.distance(nmY);
+\end{DoxyCode}
+
+
+En nuestro caso asumiremos que ambos datos tienen como longitud máxima 2 (presentados como una secuencia de pares \hyperlink{classNmer}{Nmer}=frecuencia).
+
+\begin{DoxyItemize}
+\item nmX\+: (A=690) (G=1019) (C=818) (T=694) (AA=199) (AG=282) (AC=99) (AT=109) (GA=257) (GG=372) (GC=231) (GT=159) (CA=153) (CG=162) (CC=284) (CT=219) (TA=81) (TG=202) (TC=204) (TT=207) \item nmY\+: (A=985) (G=1202) (C=1262) (T=991) (AA=270) (AG=341) (AC=219) (AT=155) (GA=261) (GG=423) (GC=300) (GT=217) (CA=349) (CC=456) (CT=386) (TG=367) (TC=286) (TT=233)\end{DoxyItemize}
+El primer paso consiste en ordenar los distintos Nmers de forma que los más frecuentes ocupen las primeras posiciones en el orden. Una alternativa para abordar este problema es utilizar un contenedor asociativo, tipo set, que almacene cada uno de los pares pero considerando como criterio de comparación el de mayor frecuencia. Como resultado tendríamos este secuencia de elementos (\hyperlink{classNmer}{Nmer} frecuencia).
+
+\begin{DoxyItemize}
+\item nmX\+: G 1019;C 818;T 694;A 690;GG 372;CC 284;AG 282;GA 257;GC 231;CT 219;TT 207;TC 204;TG 202;AA 199;CG 162;GT 159;CA 153;AT 109;AC 99;TA 81; \item nmY\+: C 1262;G 1202;T 991;A 985;CC 456;GG 423;CT 386;TG 367;CA 349;AG 341;GC 300;TC 286;AA 270;GA 261;TT 233;AC 219;GT 217;AT 155;\end{DoxyItemize}
+Iterando sobre este contenedor es fácil asociar a cada \hyperlink{classNmer}{Nmer} su posición en el ranking. Así para adnX el \hyperlink{classNmer}{Nmer} G tendrá valor 1, \hyperlink{classNmer}{Nmer} C tendrá valor 2, \hyperlink{classNmer}{Nmer} T será 3, ... Esto es,
+
+\begin{DoxyItemize}
+\item rankingX\+: G 1; C 2; T 3; A 4; GG 5; CC 6; AG 7; GA 8; GC 9; CT 10; TT 11; TC 12; TG 13; AA 14; CG 15; GT 16; CA 17; AT 18; AC 19; TA 20; \item rankingY\+: C 1; G 2; T 3; A 4; CC 5; GG 6; CT 7; TG 8; CA 9; AG 10; GC 11; TC 12; AA 13; GA 14; TT 15; AC 16; GT 17; AT 18;\end{DoxyItemize}
+Una vez que tenemos este ranking podremos proceder a calcular la distancia teniendo en cuenta la distancia entre las posiciones en cada ranking. Así, por ejemplo G está a distancia 1 (diferencia entre 1 y 2), T está a distancia 0, TG está a distancia 5 (diferencia entre 13 y 8), ... y finalmente si consideramos tanto CG como TA diremos que están a distancia máxima (definida como la distancia máxima posible entre los rankings) ya que ambos Nmers no se encuentran en el rankingY.
+
+Finalmente indicar que estas distancias (normalizadas) son acumuladas, devolviendo el promedio
+
+El siguiente pseudo código nos permite computar dicha distancia\+: 
+\begin{DoxyCode}
+max <- maximo(rankingX.size(),rankingY.size());
+dist <- 0;
+Para cada \hyperlink{classNmer}{Nmer} n en rankingX \{
+  Si (n pertenece a rankingY) \{
+    posX <- la posicion de n en rankingX
+    posY <- la posicion de n en rankingY;
+        valor = abs(posX-posY)/max
+  \} \textcolor{keywordflow}{else} valor = 1;
+  dist+=valor;
+ \} 
+\textcolor{keywordflow}{return} dist/rankingX.\hyperlink{classNmer_accdea65838fcd53c48a2d05f6809643f}{size}() \textcolor{comment}{// calculamos el promedio, tomando  valores en [0,1]}
+\end{DoxyCode}
+
+
+Finalmente, indicar que la distancia, tal y como está definida no es simétrica, esto es nm\+X.\+distance(nm\+Y) != nm\+Y.\+distance(nm\+X)\hypertarget{index_entrega}{}\subsection{Entrega}\label{index_entrega}
+El alumno debe empaquetar todos los archivos relacionados con el proyecto en un archivo con nombre \char`\"{}gen\+Data.\+zip\char`\"{}. Tenga en cuenta que no se incluirán ficheros objeto, ni ejecutables. Es recomendable que haga una \char`\"{}limpieza\char`\"{} para eliminar los archivos temporales o que se puedan generar a partir de los fuentes.
+
+El alumno debe incluir un fichero con un main {\ttfamily src/ejemplo\+Nmer.\+cpp} que exhiba toda la funcionalidad programada para el T\+DA \hyperlink{classNmer}{Nmer}, incluyendo el cálculo de las distancias entre las 10 secuencias de distinta especie ({\ttfamily datos/1.\+txt, datos/2.\+txt}, etc).
+
+El alumno ya tiene disponible un fichero Makefile para realizar la compilación. Conviene estudiar con detalle este fichero y sus distintas opciones\+:
+\begin{DoxyItemize}
+\item {\ttfamily make} para generar los ejecutables
+\item {\ttfamily make documentacion} para generar la documentación en la carpeta {\ttfamily doc/html} y {\ttfamily doc/latex}
+\item {\ttfamily make clean} para eliminar ficheros temporales y objeto.
+\end{DoxyItemize}
+
+El alumno debe actualizar este fichero para compilar los nuevos módulos generados.
+
+Tenga en cuenta que los archivos deben estar distribuidos en directorios\+:
+
+gen\+Data.\+zip \begin{DoxyItemize}
+\item Makefile \item include -- Carpeta con ficheros de cabecera (.h) \item src --Carpeta con código fuente (.cpp) \item doc --Carpeta con Documentación \item obj -- Carpeta para código objeto (.o) \item lib -- Carpeta para bibliotecas (.a) \item bin -- Carpeta para ejecutables \item datos -- Carpeta para ficheros de datos\end{DoxyItemize}
+La fecha límite de entrega es el día 25 de Enero de 2017 a las 23\+:59.\hypertarget{index_bibliografia}{}\subsection{Bibliografía}\label{index_bibliografia}
+\mbox{[}1\mbox{]} k-\/mer en wikipedia\+: \href{https://en.wikipedia.org/wiki/K-mer}{\tt https\+://en.\+wikipedia.\+org/wiki/\+K-\/mer}
+
+\mbox{[}2\mbox{]} Genomic D\+NA k-\/mer spectra\+: models and modalities. (2009) Benny Chor et al. Genome Biol. 10(10)\+: R108.
+
+\mbox{[}3\mbox{]} \href{https://genome-euro.ucsc.edu/cgi-bin/hgGateway}{\tt https\+://genome-\/euro.\+ucsc.\+edu/cgi-\/bin/hg\+Gateway} 

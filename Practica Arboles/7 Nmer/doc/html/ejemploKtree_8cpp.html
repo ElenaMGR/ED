@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Nmer: Ejemplo de uso del TDA Ktree: Referencia del Archivo src/ejemploKtree.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Nmer: Ejemplo de uso del TDA Ktree
+   &#160;<span id="projectnumber">V1</span>
+   </div>
+   <div id="projectbrief">TDA Ktree: Arbol general donde cada nodo tiene [0:k-1] hijos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="globals.html"><span>Miembros&#160;de&#160;los&#160;ficheros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo ejemploKtree.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+<code>#include &lt;set&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &lt;random&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="ktree_8h_source.html">ktree.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Nmer_8h_source.html">Nmer.h</a>&quot;</code><br />
+</div>
+<p><a href="ejemploKtree_8cpp_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a512e0736b309ed242ee635c036823f90"><td class="memTemplParams" colspan="2">template&lt;typename T , int K&gt; </td></tr>
+<tr class="memitem:a512e0736b309ed242ee635c036823f90"><td class="memTemplItemLeft" align="right" valign="top">vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#a512e0736b309ed242ee635c036823f90">calcula_padres</a> (typename <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt;::const_node n)</td></tr>
+<tr class="separator:a512e0736b309ed242ee635c036823f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad658af52bddfb159a19c49bab8be5910"><td class="memTemplParams" colspan="2">template&lt;typename T , int K&gt; </td></tr>
+<tr class="memitem:ad658af52bddfb159a19c49bab8be5910"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#ad658af52bddfb159a19c49bab8be5910">recorrido_por_niveles</a> (const <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt; &amp;a)</td></tr>
+<tr class="separator:ad658af52bddfb159a19c49bab8be5910"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafc935e3e17d6e285b3fe1b36e02f59a"><td class="memTemplParams" colspan="2">template&lt;typename T , int K&gt; </td></tr>
+<tr class="memitem:aafc935e3e17d6e285b3fe1b36e02f59a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#aafc935e3e17d6e285b3fe1b36e02f59a">recorrido_por_niveles</a> (typename <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt;::const_node n)</td></tr>
+<tr class="separator:aafc935e3e17d6e285b3fe1b36e02f59a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6b63bf05ca874f6f68056e48d972302"><td class="memTemplParams" colspan="2">template&lt;typename T , int K&gt; </td></tr>
+<tr class="memitem:ac6b63bf05ca874f6f68056e48d972302"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#ac6b63bf05ca874f6f68056e48d972302">Altura</a> (const <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt; &amp;arbol)</td></tr>
+<tr class="separator:ac6b63bf05ca874f6f68056e48d972302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0df8260f4b2a173cce27a941d5fec42b"><td class="memTemplParams" colspan="2">template&lt;typename T , int K&gt; </td></tr>
+<tr class="memitem:a0df8260f4b2a173cce27a941d5fec42b"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#a0df8260f4b2a173cce27a941d5fec42b">Altura</a> (typename <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt;::const_node n)</td></tr>
+<tr class="separator:a0df8260f4b2a173cce27a941d5fec42b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ae38f4399966752d1ca1d20d24b63ac"><td class="memTemplParams" colspan="2">template&lt;typename T , int K&gt; </td></tr>
+<tr class="memitem:a7ae38f4399966752d1ca1d20d24b63ac"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#a7ae38f4399966752d1ca1d20d24b63ac">recorrido_preorden</a> (const <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt; &amp;arbol)</td></tr>
+<tr class="separator:a7ae38f4399966752d1ca1d20d24b63ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d1d98c0cb0c8a52892b26d617bab009"><td class="memTemplParams" colspan="2">template&lt;typename T , int K&gt; </td></tr>
+<tr class="memitem:a3d1d98c0cb0c8a52892b26d617bab009"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#a3d1d98c0cb0c8a52892b26d617bab009">recorrido_preorden</a> (typename <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt;::const_node n)</td></tr>
+<tr class="separator:a3d1d98c0cb0c8a52892b26d617bab009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37aa684934db54c0a2564873f636b18d"><td class="memTemplParams" colspan="2">template&lt;typename T , int K&gt; </td></tr>
+<tr class="memitem:a37aa684934db54c0a2564873f636b18d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#a37aa684934db54c0a2564873f636b18d">recorrido_inorden</a> (const <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt; &amp;arbol)</td></tr>
+<tr class="separator:a37aa684934db54c0a2564873f636b18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10aead449303c9c241ad1045a287018d"><td class="memTemplParams" colspan="2">template&lt;typename T , int  = 2&gt; </td></tr>
+<tr class="memitem:a10aead449303c9c241ad1045a287018d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#a10aead449303c9c241ad1045a287018d">recorrido_inorden</a> (typename <a class="el" href="classktree.html">ktree</a>&lt; T, 2 &gt;::const_node n)</td></tr>
+<tr class="separator:a10aead449303c9c241ad1045a287018d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74cda70a458696251c8b2a963344487a"><td class="memTemplParams" colspan="2">template&lt;typename T , int K&gt; </td></tr>
+<tr class="memitem:a74cda70a458696251c8b2a963344487a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#a74cda70a458696251c8b2a963344487a">listar_hijos</a> (typename <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt;::node n)</td></tr>
+<tr class="separator:a74cda70a458696251c8b2a963344487a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fd0b8ba76207351d65a115b86b84c62"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6fd0b8ba76207351d65a115b86b84c62"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#a6fd0b8ba76207351d65a115b86b84c62">insertar_valorABB</a> (<a class="el" href="classktree.html">ktree</a>&lt; T, 2 &gt; &amp;arbol, const T &amp;valor)</td></tr>
+<tr class="separator:a6fd0b8ba76207351d65a115b86b84c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3755864b9267046c16364f7a590393c4"><td class="memTemplParams" colspan="2">template&lt;typename T , int K&gt; </td></tr>
+<tr class="memitem:a3755864b9267046c16364f7a590393c4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#a3755864b9267046c16364f7a590393c4">CambiaEtiquetas</a> (typename <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt;::node n, const T &amp;antigua, const T &amp;nueva)</td></tr>
+<tr class="separator:a3755864b9267046c16364f7a590393c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a746189755e2170f3742cd9805bab1c72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#a746189755e2170f3742cd9805bab1c72">TiempoComparativo</a> (int tama)</td></tr>
+<tr class="separator:a746189755e2170f3742cd9805bab1c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ejemploKtree_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="ac6b63bf05ca874f6f68056e48d972302"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int Altura </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt; &amp;&#160;</td>
+          <td class="paramname"><em>arbol</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00059">59</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0df8260f4b2a173cce27a941d5fec42b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int Altura </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt;::const_node&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00065">65</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a512e0736b309ed242ee635c036823f90"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;T&gt; calcula_padres </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt;::const_node&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00022">22</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3755864b9267046c16364f7a590393c4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void CambiaEtiquetas </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt;::node&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>antigua</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>nueva</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00172">172</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6fd0b8ba76207351d65a115b86b84c62"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void insertar_valorABB </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classktree.html">ktree</a>&lt; T, 2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>arbol</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>valor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00146">146</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a74cda70a458696251c8b2a963344487a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void listar_hijos </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt;::node&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00119">119</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00244">244</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a37aa684934db54c0a2564873f636b18d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void recorrido_inorden </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt; &amp;&#160;</td>
+          <td class="paramname"><em>arbol</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00102">102</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a10aead449303c9c241ad1045a287018d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int  = 2&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void recorrido_inorden </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classktree.html">ktree</a>&lt; T, 2 &gt;::const_node&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00108">108</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad658af52bddfb159a19c49bab8be5910"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void recorrido_por_niveles </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00033">33</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aafc935e3e17d6e285b3fe1b36e02f59a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void recorrido_por_niveles </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt;::const_node&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00040">40</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7ae38f4399966752d1ca1d20d24b63ac"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void recorrido_preorden </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt; &amp;&#160;</td>
+          <td class="paramname"><em>arbol</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00081">81</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3d1d98c0cb0c8a52892b26d617bab009"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , int K&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void recorrido_preorden </td>
+          <td>(</td>
+          <td class="paramtype">typename <a class="el" href="classktree.html">ktree</a>&lt; T, K &gt;::const_node&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00087">87</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a746189755e2170f3742cd9805bab1c72"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TiempoComparativo </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>tama</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="ejemploKtree_8cpp_source.html#l00203">203</a> del archivo <a class="el" href="ejemploKtree_8cpp_source.html">ejemploKtree.cpp</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>

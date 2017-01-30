@@ -1,0 +1,282 @@
+\hypertarget{classktree_1_1const__node}{}\subsection{Referencia de la Clase ktree$<$ T, K $>$\+:\+:const\+\_\+node}
+\label{classktree_1_1const__node}\index{ktree$<$ T, K $>$\+::const\+\_\+node@{ktree$<$ T, K $>$\+::const\+\_\+node}}
+
+
+{\ttfamily \#include $<$ktree.\+h$>$}
+
+\subsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classktree_1_1const__node_1_1child__iterator}{child\+\_\+iterator}
+\end{DoxyCompactItemize}
+\subsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classktree_1_1const__node_a439b384a406a9f05c9521d1fab3f4df7}{const\+\_\+node} ()
+\begin{DoxyCompactList}\small\item\em Constructor primitivo. \end{DoxyCompactList}\item 
+\hyperlink{classktree_1_1const__node_a756dc440f0c7589bbb79dccbd2986317}{const\+\_\+node} (const typename \hyperlink{classktree}{ktree}$<$ T, K $>$\+::\hyperlink{classktree_1_1node}{node} \&n)
+\begin{DoxyCompactList}\small\item\em Constructor para convertir node a \hyperlink{classktree_1_1const__node}{const\+\_\+node}. \end{DoxyCompactList}\item 
+\hyperlink{classktree_1_1const__node_a87694d10de1d723974a1f7e51b51c788}{const\+\_\+node} (const \hyperlink{classktree_1_1const__node}{const\+\_\+node} \&n)
+\begin{DoxyCompactList}\small\item\em Constructor de copia. \end{DoxyCompactList}\item 
+bool \hyperlink{classktree_1_1const__node_a2a5d20cd6c40daea30e006490dafbd8a}{null} () const 
+\begin{DoxyCompactList}\small\item\em Determina si el nodo es nulo. \end{DoxyCompactList}\item 
+\hyperlink{classktree_1_1const__node}{const\+\_\+node} \hyperlink{classktree_1_1const__node_a0ead125a85ccf4ddecb46bea325fad68}{parent} () const 
+\begin{DoxyCompactList}\small\item\em Devuelve el padre del nodo receptor. \end{DoxyCompactList}\item 
+\hyperlink{classktree_1_1const__node}{const\+\_\+node} \hyperlink{classktree_1_1const__node_ac853df3589c77a18836ddd4a9741b789}{k\+\_\+child} (int k) const 
+\begin{DoxyCompactList}\small\item\em Devuelve el hijo k-\/ésimo del nodo receptor. \end{DoxyCompactList}\item 
+\hyperlink{classktree_1_1const__node}{const\+\_\+node} \hyperlink{classktree_1_1const__node_a6711cc11e346fe968f5f26c04004b35b}{operator\mbox{[}$\,$\mbox{]}} (int k) const 
+\begin{DoxyCompactList}\small\item\em Devuelve el hijo k-\/ésimo del nodo receptor. \end{DoxyCompactList}\item 
+const T \& \hyperlink{classktree_1_1const__node_a5504e0c9fc74e59b5f5e98cccfc8d303}{operator$\ast$} () const 
+\begin{DoxyCompactList}\small\item\em Devuelve la referecia constante a la etiqueta del nodo. \end{DoxyCompactList}\item 
+int \hyperlink{classktree_1_1const__node_aabdf401a352faabcd6a20a548e241ae0}{child\+\_\+number} () const 
+\begin{DoxyCompactList}\small\item\em Devuelve el numero de descendiente de un hijo con respecto a su padre. \end{DoxyCompactList}\item 
+\hyperlink{classktree_1_1const__node}{const\+\_\+node} \& \hyperlink{classktree_1_1const__node_a23bede730b36b8f3938adf941764e3f6}{operator=} (const \hyperlink{classktree_1_1const__node}{const\+\_\+node} \&n)
+\begin{DoxyCompactList}\small\item\em Operador de asignación. \end{DoxyCompactList}\item 
+bool \hyperlink{classktree_1_1const__node_a11a4e91540318b17a5f040dc944e169b}{operator==} (const \hyperlink{classktree_1_1const__node}{const\+\_\+node} \&n) const 
+\begin{DoxyCompactList}\small\item\em Operador de comparación de igualdad. \end{DoxyCompactList}\item 
+bool \hyperlink{classktree_1_1const__node_aabbe0482477a231b752f94ff5a871a63}{operator!=} (const \hyperlink{classktree_1_1const__node}{const\+\_\+node} \&n) const 
+\begin{DoxyCompactList}\small\item\em Operador de comparación de desigualdad. \end{DoxyCompactList}\item 
+\hyperlink{classktree_1_1const__node_1_1child__iterator}{child\+\_\+iterator} \hyperlink{classktree_1_1const__node_a82daa356afc4fd6709342960efd40300}{begin} () const 
+\item 
+\hyperlink{classktree_1_1const__node_1_1child__iterator}{child\+\_\+iterator} \hyperlink{classktree_1_1const__node_ae04f043e119950cc0c0137a3cbfe9250}{cbegin} () const 
+\item 
+\hyperlink{classktree_1_1const__node_1_1child__iterator}{child\+\_\+iterator} \hyperlink{classktree_1_1const__node_a4f0be6cd5e9680e2dbe8305916422131}{end} () const 
+\item 
+\hyperlink{classktree_1_1const__node_1_1child__iterator}{child\+\_\+iterator} \hyperlink{classktree_1_1const__node_af7123a00981fef57304c67db9ebc5cc1}{cend} () const 
+\end{DoxyCompactItemize}
+\subsubsection*{Amigas}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classktree_1_1const__node_afa2e7c16e38c1a4a062930d167b02a7f}{child\+\_\+iterator}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Descripción detallada}
+\subsubsection*{template$<$typename T, int K = 2$>$\\*
+class ktree$<$ T, K $>$\+::const\+\_\+node}
+
+
+
+Definición en la línea 457 del archivo ktree.\+h.
+
+
+
+\subsubsection{Documentación del constructor y destructor}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!const\+\_\+node@{const\+\_\+node}}
+\index{const\+\_\+node@{const\+\_\+node}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{const\+\_\+node()}{const_node()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::const\+\_\+node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_1_1const__node_a439b384a406a9f05c9521d1fab3f4df7}{}\label{classktree_1_1const__node_a439b384a406a9f05c9521d1fab3f4df7}
+
+
+Constructor primitivo. 
+
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!const\+\_\+node@{const\+\_\+node}}
+\index{const\+\_\+node@{const\+\_\+node}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{const\+\_\+node(const typename ktree$<$ T, K $>$\+::node \&n)}{const_node(const typename ktree< T, K >::node &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::const\+\_\+node (
+\begin{DoxyParamCaption}
+\item[{const typename {\bf ktree}$<$ T, K $>$\+::{\bf node} \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_1_1const__node_a756dc440f0c7589bbb79dccbd2986317}{}\label{classktree_1_1const__node_a756dc440f0c7589bbb79dccbd2986317}
+
+
+Constructor para convertir node a \hyperlink{classktree_1_1const__node}{const\+\_\+node}. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo que se copia \\
+\hline
+\end{DoxyParams}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!const\+\_\+node@{const\+\_\+node}}
+\index{const\+\_\+node@{const\+\_\+node}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{const\+\_\+node(const const\+\_\+node \&n)}{const_node(const const_node &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::const\+\_\+node (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+node} \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_1_1const__node_a87694d10de1d723974a1f7e51b51c788}{}\label{classktree_1_1const__node_a87694d10de1d723974a1f7e51b51c788}
+
+
+Constructor de copia. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Nodo que se copia \\
+\hline
+\end{DoxyParams}
+
+
+\subsubsection{Documentación de las funciones miembro}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!begin@{begin}}
+\index{begin@{begin}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{begin() const }{begin() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf child\+\_\+iterator} {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_1_1const__node_a82daa356afc4fd6709342960efd40300}{}\label{classktree_1_1const__node_a82daa356afc4fd6709342960efd40300}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{cbegin() const }{cbegin() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf child\+\_\+iterator} {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::cbegin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_1_1const__node_ae04f043e119950cc0c0137a3cbfe9250}{}\label{classktree_1_1const__node_ae04f043e119950cc0c0137a3cbfe9250}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!cend@{cend}}
+\index{cend@{cend}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{cend() const }{cend() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf child\+\_\+iterator} {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::cend (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_1_1const__node_af7123a00981fef57304c67db9ebc5cc1}{}\label{classktree_1_1const__node_af7123a00981fef57304c67db9ebc5cc1}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!child\+\_\+number@{child\+\_\+number}}
+\index{child\+\_\+number@{child\+\_\+number}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{child\+\_\+number() const }{child_number() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ int {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::child\+\_\+number (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_1_1const__node_aabdf401a352faabcd6a20a548e241ae0}{}\label{classktree_1_1const__node_aabdf401a352faabcd6a20a548e241ae0}
+
+
+Devuelve el numero de descendiente de un hijo con respecto a su padre. 
+
+\begin{DoxyReturn}{Devuelve}
+un valor entre 0 y k-\/1 correspondiente a la posicion, o -\/1 si es el nodo raiz 
+\end{DoxyReturn}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!end@{end}}
+\index{end@{end}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{end() const }{end() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf child\+\_\+iterator} {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_1_1const__node_a4f0be6cd5e9680e2dbe8305916422131}{}\label{classktree_1_1const__node_a4f0be6cd5e9680e2dbe8305916422131}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!k\+\_\+child@{k\+\_\+child}}
+\index{k\+\_\+child@{k\+\_\+child}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{k\+\_\+child(int k) const }{k_child(int k) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf const\+\_\+node} {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::k\+\_\+child (
+\begin{DoxyParamCaption}
+\item[{int}]{k}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_1_1const__node_ac853df3589c77a18836ddd4a9741b789}{}\label{classktree_1_1const__node_ac853df3589c77a18836ddd4a9741b789}
+
+
+Devuelve el hijo k-\/ésimo del nodo receptor. 
+
+\begin{DoxyPrecond}{Precondición}
+!null() 
+\end{DoxyPrecond}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!null@{null}}
+\index{null@{null}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{null() const }{null() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ bool {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::null (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_1_1const__node_a2a5d20cd6c40daea30e006490dafbd8a}{}\label{classktree_1_1const__node_a2a5d20cd6c40daea30e006490dafbd8a}
+
+
+Determina si el nodo es nulo. 
+
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{operator"!=(const const\+\_\+node \&n) const }{operator!=(const const_node &n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ bool {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+node} \&}]{n}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_1_1const__node_aabbe0482477a231b752f94ff5a871a63}{}\label{classktree_1_1const__node_aabbe0482477a231b752f94ff5a871a63}
+
+
+Operador de comparación de desigualdad. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & el nodo con el que se compara \\
+\hline
+\end{DoxyParams}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{operator$\ast$() const }{operator*() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ const T\& {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_1_1const__node_a5504e0c9fc74e59b5f5e98cccfc8d303}{}\label{classktree_1_1const__node_a5504e0c9fc74e59b5f5e98cccfc8d303}
+
+
+Devuelve la referecia constante a la etiqueta del nodo. 
+
+\begin{DoxyPrecond}{Precondición}
+!null() 
+\end{DoxyPrecond}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!operator=@{operator=}}
+\index{operator=@{operator=}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{operator=(const const\+\_\+node \&n)}{operator=(const const_node &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf const\+\_\+node}\& {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+node} \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_1_1const__node_a23bede730b36b8f3938adf941764e3f6}{}\label{classktree_1_1const__node_a23bede730b36b8f3938adf941764e3f6}
+
+
+Operador de asignación. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & el nodo a asignar \\
+\hline
+\end{DoxyParams}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!operator==@{operator==}}
+\index{operator==@{operator==}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{operator==(const const\+\_\+node \&n) const }{operator==(const const_node &n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ bool {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+node} \&}]{n}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_1_1const__node_a11a4e91540318b17a5f040dc944e169b}{}\label{classktree_1_1const__node_a11a4e91540318b17a5f040dc944e169b}
+
+
+Operador de comparación de igualdad. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & el nodo con el que se compara \\
+\hline
+\end{DoxyParams}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{operator[](int k) const }{operator[](int k) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf const\+\_\+node} {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{int}]{k}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_1_1const__node_a6711cc11e346fe968f5f26c04004b35b}{}\label{classktree_1_1const__node_a6711cc11e346fe968f5f26c04004b35b}
+
+
+Devuelve el hijo k-\/ésimo del nodo receptor. 
+
+\begin{DoxyPrecond}{Precondición}
+!null() 
+\end{DoxyPrecond}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!parent@{parent}}
+\index{parent@{parent}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{parent() const }{parent() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf const\+\_\+node} {\bf ktree}$<$ T, K $>$\+::const\+\_\+node\+::parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_1_1const__node_a0ead125a85ccf4ddecb46bea325fad68}{}\label{classktree_1_1const__node_a0ead125a85ccf4ddecb46bea325fad68}
+
+
+Devuelve el padre del nodo receptor. 
+
+\begin{DoxyPrecond}{Precondición}
+!null() 
+\end{DoxyPrecond}
+
+
+\subsubsection{Documentación de las funciones relacionadas y clases amigas}
+\index{ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}!child\+\_\+iterator@{child\+\_\+iterator}}
+\index{child\+\_\+iterator@{child\+\_\+iterator}!ktree\+::const\+\_\+node@{ktree\+::const\+\_\+node}}
+\paragraph[{\texorpdfstring{child\+\_\+iterator}{child_iterator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ friend class {\bf child\+\_\+iterator}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classktree_1_1const__node_afa2e7c16e38c1a4a062930d167b02a7f}{}\label{classktree_1_1const__node_afa2e7c16e38c1a4a062930d167b02a7f}
+
+
+Definición en la línea 532 del archivo ktree.\+h.
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{ktree_8h}{ktree.\+h}\end{DoxyCompactItemize}

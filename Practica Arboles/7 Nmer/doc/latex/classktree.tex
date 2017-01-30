@@ -1,0 +1,447 @@
+\hypertarget{classktree}{}\subsection{Referencia de la plantilla de la Clase ktree$<$ T, K $>$}
+\label{classktree}\index{ktree$<$ T, K $>$@{ktree$<$ T, K $>$}}
+
+
+{\ttfamily \#include $<$ktree.\+h$>$}
+
+\subsubsection*{Clases}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classktree_1_1const__node}{const\+\_\+node}
+\item 
+class \hyperlink{classktree_1_1node}{node}
+\end{DoxyCompactItemize}
+\subsubsection*{Tipos públicos}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \hyperlink{classktree_ac0f325d73a32ea75b8d09579c2085566}{size\+\_\+type}
+\end{DoxyCompactItemize}
+\subsubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classktree_a70c8511d0c0fc199f341065fab0aa0ad}{ktree} ()
+\begin{DoxyCompactList}\small\item\em Constructor primitivo por defecto. Crea un árbol nulo. \end{DoxyCompactList}\item 
+\hyperlink{classktree_ae26a47d96a8630c9bcd3c85b34873291}{ktree} (const T \&e)
+\begin{DoxyCompactList}\small\item\em Constructor primitivo. \end{DoxyCompactList}\item 
+\hyperlink{classktree_a3590e97c7bc6556340337c30d382b23d}{ktree} (const \hyperlink{classktree}{ktree}$<$ T, K $>$ \&a)
+\begin{DoxyCompactList}\small\item\em Constructor de copia. \end{DoxyCompactList}\item 
+\hyperlink{classktree_ac567238116c54fc47a65d65a3f69151c}{$\sim$ktree} ()
+\begin{DoxyCompactList}\small\item\em Destructor. Destruye el receptor liberando los recursos que ocupaba. \end{DoxyCompactList}\item 
+\hyperlink{classktree}{ktree}$<$ T, K $>$ \& \hyperlink{classktree_ac2305e0ca7b7f7d96c7e978fc7240e71}{operator=} (const \hyperlink{classktree}{ktree}$<$ T, K $>$ \&a)
+\begin{DoxyCompactList}\small\item\em Operador de asignación. \end{DoxyCompactList}\item 
+\hyperlink{classktree_1_1const__node}{const\+\_\+node} \hyperlink{classktree_a2d252651d05d9a107c009fcfdfc91df4}{root} () const 
+\begin{DoxyCompactList}\small\item\em Obtener la raíz como nodo constante.\+Obtener el nodo raíz. \end{DoxyCompactList}\item 
+\hyperlink{classktree_1_1node}{node} \hyperlink{classktree_a8e0380e91ee04cc45541e15e14d8c8ea}{root} ()
+\begin{DoxyCompactList}\small\item\em Obtener el nodo raíz. \end{DoxyCompactList}\item 
+void \hyperlink{classktree_ae10914de8d5fc7d594bc0f4364e255c1}{prune\+\_\+k\+\_\+child} (\hyperlink{classktree_1_1node}{node} n, int k, \hyperlink{classktree}{ktree}$<$ T, K $>$ \&dest)
+\begin{DoxyCompactList}\small\item\em Podar el subárbol localizado en el hijo k-\/ésimo de un nodo. \end{DoxyCompactList}\item 
+void \hyperlink{classktree_a10b652a0d5ad225d550726b5bed22a5c}{insert\+\_\+k\+\_\+child} (\hyperlink{classktree}{ktree}$<$ T, K $>$\+::\hyperlink{classktree_1_1node}{node} \&n, int k, const T \&e)
+\begin{DoxyCompactList}\small\item\em Insertar un nodo como hijo k-\/ésimo de un nodo n. \end{DoxyCompactList}\item 
+void \hyperlink{classktree_a33d22bb9a3960d93de58a6d84956bd13}{insert\+\_\+k\+\_\+child} (\hyperlink{classktree_1_1node}{node} n, int k, \hyperlink{classktree}{ktree}$<$ T, K $>$ \&rama)
+\begin{DoxyCompactList}\small\item\em Insertar un árbol como hijo k-\/ésimo de un nodo. \end{DoxyCompactList}\item 
+void \hyperlink{classktree_a2fbab28302612402eae9097b6d520300}{assing} (const \hyperlink{classktree}{ktree}$<$ T, K $>$ \&org, \hyperlink{classktree_1_1node}{node} n)
+\begin{DoxyCompactList}\small\item\em asignar subarbol. Hace del receptor una copia del subarbol de org con raíz en n \end{DoxyCompactList}\item 
+void \hyperlink{classktree_aeaf32bc182e353b0d29f9630a792c8a4}{assing} (const T \&e)
+\begin{DoxyCompactList}\small\item\em asignar un nodo. Hace que el receptor sea un árbol con un único nodo con etiqueta e \end{DoxyCompactList}\item 
+void \hyperlink{classktree_a02ef64af59f862c9988831879969a599}{clear} ()
+\begin{DoxyCompactList}\small\item\em Hace nulo un árbol. Destruye todos los nodos del árbol receptor y lo hace un árbol nulo. \end{DoxyCompactList}\item 
+\hyperlink{classktree_ac0f325d73a32ea75b8d09579c2085566}{size\+\_\+type} \hyperlink{classktree_a92ec62757b1c5e5de363926a47c34dfa}{size} () const 
+\begin{DoxyCompactList}\small\item\em Obtiene el número de nodos. \end{DoxyCompactList}\item 
+bool \hyperlink{classktree_a71f040bbe682e6bf70a60c88ef13e20b}{empty} () const 
+\begin{DoxyCompactList}\small\item\em Comprueba si un árbol está vacío (es nulo). \end{DoxyCompactList}\item 
+bool \hyperlink{classktree_acf517775ac06bfc92644204b764ed66a}{operator==} (const \hyperlink{classktree}{ktree}$<$ T, K $>$ \&a) const 
+\begin{DoxyCompactList}\small\item\em Operador de comparación de igualdad. \end{DoxyCompactList}\item 
+bool \hyperlink{classktree_ab346beffa74a7d80243f11b2762d2c30}{operator!=} (const \hyperlink{classktree}{ktree}$<$ T, K $>$ \&a) const 
+\begin{DoxyCompactList}\small\item\em Operador de comparación de desigualdad. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class to\+String $>$ }\\string \hyperlink{classktree_a358f42faaa3a64d50acc63fc1556617a}{serialize} (const T \&valor\+\_\+nulo, char delim, to\+String T2\+Str) const 
+\begin{DoxyCompactList}\small\item\em Serializa el arbol. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class String2T $>$ }\\void \hyperlink{classktree_a66d27ffb43b3c790370b45c0a8309534}{deserialize} (const string \&ser, const T \&valor\+\_\+nulo, char delim, String2T Str2T)
+\begin{DoxyCompactList}\small\item\em Reconstruye el árbol a partir de una serialización válida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Atributos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{classktree_a3c639c3ca0ef80277c29ae54d7bd8d41}{kvalue} = K
+\begin{DoxyCompactList}\small\item\em Valor del número de descendientes. Es constante, tomando el valor por defecto de 2, árbol binario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Descripción detallada}
+\subsubsection*{template$<$typename T, int K = 2$>$\\*
+class ktree$<$ T, K $>$}
+
+
+
+Definición en la línea 43 del archivo ktree.\+h.
+
+
+
+\subsubsection{Documentación de los \textquotesingle{}Typedef\textquotesingle{} miembros de la clase}
+\index{ktree@{ktree}!size\+\_\+type@{size\+\_\+type}}
+\index{size\+\_\+type@{size\+\_\+type}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{size\+\_\+type}{size_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ typedef unsigned int {\bf ktree}$<$ T, K $>$\+::{\bf size\+\_\+type}}\hypertarget{classktree_ac0f325d73a32ea75b8d09579c2085566}{}\label{classktree_ac0f325d73a32ea75b8d09579c2085566}
+
+
+Definición en la línea 46 del archivo ktree.\+h.
+
+
+
+\subsubsection{Documentación del constructor y destructor}
+\index{ktree@{ktree}!ktree@{ktree}}
+\index{ktree@{ktree}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{ktree()}{ktree()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf ktree}$<$ T, K $>$\+::{\bf ktree} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_a70c8511d0c0fc199f341065fab0aa0ad}{}\label{classktree_a70c8511d0c0fc199f341065fab0aa0ad}
+
+
+Constructor primitivo por defecto. Crea un árbol nulo. 
+
+\index{ktree@{ktree}!ktree@{ktree}}
+\index{ktree@{ktree}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{ktree(const T \&e)}{ktree(const T &e)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf ktree}$<$ T, K $>$\+::{\bf ktree} (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_ae26a47d96a8630c9bcd3c85b34873291}{}\label{classktree_ae26a47d96a8630c9bcd3c85b34873291}
+
+
+Constructor primitivo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em e} & Etiqueta para la raíz. Crea un árbol con un único nodo etiquetado con e y sus k hijos todos nulos \\
+\hline
+\end{DoxyParams}
+\index{ktree@{ktree}!ktree@{ktree}}
+\index{ktree@{ktree}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{ktree(const ktree$<$ T, K $>$ \&a)}{ktree(const ktree< T, K > &a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf ktree}$<$ T, K $>$\+::{\bf ktree} (
+\begin{DoxyParamCaption}
+\item[{const {\bf ktree}$<$ T, K $>$ \&}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_a3590e97c7bc6556340337c30d382b23d}{}\label{classktree_a3590e97c7bc6556340337c30d382b23d}
+
+
+Constructor de copia. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em a} & árbol que se copia. Crea un árbol duplicado exacto de a. \\
+\hline
+\end{DoxyParams}
+\index{ktree@{ktree}!````~ktree@{$\sim$ktree}}
+\index{````~ktree@{$\sim$ktree}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{$\sim$ktree()}{~ktree()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf ktree}$<$ T, K $>$\+::$\sim${\bf ktree} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_ac567238116c54fc47a65d65a3f69151c}{}\label{classktree_ac567238116c54fc47a65d65a3f69151c}
+
+
+Destructor. Destruye el receptor liberando los recursos que ocupaba. 
+
+
+
+\subsubsection{Documentación de las funciones miembro}
+\index{ktree@{ktree}!assing@{assing}}
+\index{assing@{assing}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{assing(const ktree$<$ T, K $>$ \&org, node n)}{assing(const ktree< T, K > &org, node n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ void {\bf ktree}$<$ T, K $>$\+::assing (
+\begin{DoxyParamCaption}
+\item[{const {\bf ktree}$<$ T, K $>$ \&}]{org, }
+\item[{{\bf node}}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_a2fbab28302612402eae9097b6d520300}{}\label{classktree_a2fbab28302612402eae9097b6d520300}
+
+
+asignar subarbol. Hace del receptor una copia del subarbol de org con raíz en n 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & nodo de org a partir del que se copia. n != nodo\+\_\+nulo. \\
+\hline
+{\em org} & Arbol original (no se modifica).\\
+\hline
+\end{DoxyParams}
+Si el arbol receptor contiene elementos, estos son eliminados. \index{ktree@{ktree}!assing@{assing}}
+\index{assing@{assing}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{assing(const T \&e)}{assing(const T &e)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ void {\bf ktree}$<$ T, K $>$\+::assing (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_aeaf32bc182e353b0d29f9630a792c8a4}{}\label{classktree_aeaf32bc182e353b0d29f9630a792c8a4}
+
+
+asignar un nodo. Hace que el receptor sea un árbol con un único nodo con etiqueta e 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em e} & Etiqueta a asignar\\
+\hline
+\end{DoxyParams}
+Si el arbol receptor contiene elementos préviamente, éstos son eliminados. \index{ktree@{ktree}!clear@{clear}}
+\index{clear@{clear}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ void {\bf ktree}$<$ T, K $>$\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_a02ef64af59f862c9988831879969a599}{}\label{classktree_a02ef64af59f862c9988831879969a599}
+
+
+Hace nulo un árbol. Destruye todos los nodos del árbol receptor y lo hace un árbol nulo. 
+
+\index{ktree@{ktree}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{deserialize(const string \&ser, const T \&valor\+\_\+nulo, char delim, String2\+T Str2\+T)}{deserialize(const string &ser, const T &valor_nulo, char delim, String2T Str2T)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ template$<$class String2T $>$ void {\bf ktree}$<$ T, K $>$\+::deserialize (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{ser, }
+\item[{const T \&}]{valor\+\_\+nulo, }
+\item[{char}]{delim, }
+\item[{String2T}]{Str2T}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_a66d27ffb43b3c790370b45c0a8309534}{}\label{classktree_a66d27ffb43b3c790370b45c0a8309534}
+
+
+Reconstruye el árbol a partir de una serialización válida. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\tt in}  & {\em ser} & cadena que representa la serialización \\
+\hline
+\mbox{\tt in}  & {\em valor\+\_\+nulo} & valor nulo para el parámetro de tipo T \\
+\hline
+\mbox{\tt in}  & {\em delim} & delimitar utilizado para separar valores en el árbol \\
+\hline
+\mbox{\tt in}  & {\em St2T} & functor que recibe un string, s, y lo convierte en un valor de tipo T correcto. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+el string ser ha sido obtenido mediante el proceso serialize(valor\+\_\+nulo,delim,\+T2\+Str) 
+
+Str2T es el proceso inverso de T2\+Str
+\end{DoxyPrecond}
+Genera el ktree$<$\+T,\+K$>$ que dió origen al la serialización representada por ser. \index{ktree@{ktree}!empty@{empty}}
+\index{empty@{empty}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{empty() const }{empty() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ bool {\bf ktree}$<$ T, K $>$\+::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_a71f040bbe682e6bf70a60c88ef13e20b}{}\label{classktree_a71f040bbe682e6bf70a60c88ef13e20b}
+
+
+Comprueba si un árbol está vacío (es nulo). 
+
+\begin{DoxyReturn}{Devuelve}
+true, si el receptor está vacío (es nulo). false, en otro caso. 
+\end{DoxyReturn}
+\index{ktree@{ktree}!insert\+\_\+k\+\_\+child@{insert\+\_\+k\+\_\+child}}
+\index{insert\+\_\+k\+\_\+child@{insert\+\_\+k\+\_\+child}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{insert\+\_\+k\+\_\+child(ktree$<$ T, K $>$\+::node \&n, int k, const T \&e)}{insert_k_child(ktree< T, K >::node &n, int k, const T &e)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ void {\bf ktree}$<$ T, K $>$\+::insert\+\_\+k\+\_\+child (
+\begin{DoxyParamCaption}
+\item[{{\bf ktree}$<$ T, K $>$\+::{\bf node} \&}]{n, }
+\item[{int}]{k, }
+\item[{const T \&}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_a10b652a0d5ad225d550726b5bed22a5c}{}\label{classktree_a10b652a0d5ad225d550726b5bed22a5c}
+
+
+Insertar un nodo como hijo k-\/ésimo de un nodo n. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & nodo del receptor. !n.null(). \\
+\hline
+{\em k} & número de hijo de n \\
+\hline
+{\em e} & etiqueta del nuevo nodo.\\
+\hline
+\end{DoxyParams}
+Inserta un nuevo nodo con etiqueta e como hijo k-\/ésimo de n. Si n tuviese al menos un descendiente en dicha posición lo desconecta y destruye el subárbol. \index{ktree@{ktree}!insert\+\_\+k\+\_\+child@{insert\+\_\+k\+\_\+child}}
+\index{insert\+\_\+k\+\_\+child@{insert\+\_\+k\+\_\+child}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{insert\+\_\+k\+\_\+child(node n, int k, ktree$<$ T, K $>$ \&rama)}{insert_k_child(node n, int k, ktree< T, K > &rama)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ void {\bf ktree}$<$ T, K $>$\+::insert\+\_\+k\+\_\+child (
+\begin{DoxyParamCaption}
+\item[{{\bf node}}]{n, }
+\item[{int}]{k, }
+\item[{{\bf ktree}$<$ T, K $>$ \&}]{rama}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_a33d22bb9a3960d93de58a6d84956bd13}{}\label{classktree_a33d22bb9a3960d93de58a6d84956bd13}
+
+
+Insertar un árbol como hijo k-\/ésimo de un nodo. 
+
+
+\begin{DoxyParams}[1]{Parámetros}
+\mbox{\tt in}  & {\em n} & nodo del receptor. n != nodo\+\_\+nulo. \\
+\hline
+\mbox{\tt in}  & {\em k} & número de hijo de n \\
+\hline
+\mbox{\tt in,out}  & {\em rama} & subárbol que se inserta. Es M\+O\+D\+I\+F\+I\+C\+A\+DO quedando como árbol vacío tras la inserción-\/\\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondición}
+n no puede ser nulo
+\end{DoxyPrecond}
+Inserta la rama como subárbol en la posición k-\/ésima del nodo n. Si hubiese un subárbol en esa posición lo destruye. Además, rama se hace árbol nulo. \index{ktree@{ktree}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{operator"!=(const ktree$<$ T, K $>$ \&a) const }{operator!=(const ktree< T, K > &a) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ bool {\bf ktree}$<$ T, K $>$\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf ktree}$<$ T, K $>$ \&}]{a}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_ab346beffa74a7d80243f11b2762d2c30}{}\label{classktree_ab346beffa74a7d80243f11b2762d2c30}
+
+
+Operador de comparación de desigualdad. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em a} & árbol con que se compara el receptor.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true, si el receptor no es igual, en estructura o etiquetas a a. false, en otro caso. 
+\end{DoxyReturn}
+\index{ktree@{ktree}!operator=@{operator=}}
+\index{operator=@{operator=}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{operator=(const ktree$<$ T, K $>$ \&a)}{operator=(const ktree< T, K > &a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf ktree}$<$T,K$>$\& {\bf ktree}$<$ T, K $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf ktree}$<$ T, K $>$ \&}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_ac2305e0ca7b7f7d96c7e978fc7240e71}{}\label{classktree_ac2305e0ca7b7f7d96c7e978fc7240e71}
+
+
+Operador de asignación. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em a} & árbol que se asigna.\\
+\hline
+\end{DoxyParams}
+Destruye el contenido previo del receptor y le asigna un duplicado de a. \index{ktree@{ktree}!operator==@{operator==}}
+\index{operator==@{operator==}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{operator==(const ktree$<$ T, K $>$ \&a) const }{operator==(const ktree< T, K > &a) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ bool {\bf ktree}$<$ T, K $>$\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf ktree}$<$ T, K $>$ \&}]{a}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_acf517775ac06bfc92644204b764ed66a}{}\label{classktree_acf517775ac06bfc92644204b764ed66a}
+
+
+Operador de comparación de igualdad. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em a} & árbol con que se compara el receptor.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true, si el receptor es igual, en estructura y etiquetas a a. false, en otro caso. 
+\end{DoxyReturn}
+\index{ktree@{ktree}!prune\+\_\+k\+\_\+child@{prune\+\_\+k\+\_\+child}}
+\index{prune\+\_\+k\+\_\+child@{prune\+\_\+k\+\_\+child}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{prune\+\_\+k\+\_\+child(node n, int k, ktree$<$ T, K $>$ \&dest)}{prune_k_child(node n, int k, ktree< T, K > &dest)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ void {\bf ktree}$<$ T, K $>$\+::prune\+\_\+k\+\_\+child (
+\begin{DoxyParamCaption}
+\item[{{\bf node}}]{n, }
+\item[{int}]{k, }
+\item[{{\bf ktree}$<$ T, K $>$ \&}]{dest}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_ae10914de8d5fc7d594bc0f4364e255c1}{}\label{classktree_ae10914de8d5fc7d594bc0f4364e255c1}
+
+
+Podar el subárbol localizado en el hijo k-\/ésimo de un nodo. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & nodo del receptor. !n.null() \\
+\hline
+{\em k} & número de hijo de n \\
+\hline
+{\em dest} & árbol destino donde se mueve el subárbol. Es M\+O\+D\+I\+F\+I\+C\+A\+DO.\\
+\hline
+\end{DoxyParams}
+Desconecta el subárbol localizado en el hijo k-\/ésimo de n, que pasa a ser un árbol nulo en el receptor. El subárbol anterior se devuelve sobre dest. \index{ktree@{ktree}!root@{root}}
+\index{root@{root}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{root() const }{root() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf const\+\_\+node} {\bf ktree}$<$ T, K $>$\+::root (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_a2d252651d05d9a107c009fcfdfc91df4}{}\label{classktree_a2d252651d05d9a107c009fcfdfc91df4}
+
+
+Obtener la raíz como nodo constante.\+Obtener el nodo raíz. 
+
+\begin{DoxyReturn}{Devuelve}
+nodo raíz del receptor. 
+\end{DoxyReturn}
+\index{ktree@{ktree}!root@{root}}
+\index{root@{root}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{root()}{root()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf node} {\bf ktree}$<$ T, K $>$\+::root (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classktree_a8e0380e91ee04cc45541e15e14d8c8ea}{}\label{classktree_a8e0380e91ee04cc45541e15e14d8c8ea}
+
+
+Obtener el nodo raíz. 
+
+\begin{DoxyReturn}{Devuelve}
+nodo raíz del receptor. 
+\end{DoxyReturn}
+\index{ktree@{ktree}!serialize@{serialize}}
+\index{serialize@{serialize}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{serialize(const T \&valor\+\_\+nulo, char delim, to\+String T2\+Str) const }{serialize(const T &valor_nulo, char delim, toString T2Str) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ template$<$class to\+String $>$ string {\bf ktree}$<$ T, K $>$\+::serialize (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{valor\+\_\+nulo, }
+\item[{char}]{delim, }
+\item[{to\+String}]{T2\+Str}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_a358f42faaa3a64d50acc63fc1556617a}{}\label{classktree_a358f42faaa3a64d50acc63fc1556617a}
+
+
+Serializa el arbol. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em valor\+\_\+nulo} & valor nulo para el parámetro de tipo T \\
+\hline
+{\em delim} & delimitar utilizado para separar valores en el árbol \\
+\hline
+{\em T2\+Str} & functor que recibe un valor de tipo T y lo convierte en string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+cadena que representa el árbol serializado, obtenido al realizar un recorrido por niveles del mismo (donde los nodos nulos se representan con valor\+\_\+nulo 
+\end{DoxyReturn}
+\index{ktree@{ktree}!size@{size}}
+\index{size@{size}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{size() const }{size() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ {\bf size\+\_\+type} {\bf ktree}$<$ T, K $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classktree_a92ec62757b1c5e5de363926a47c34dfa}{}\label{classktree_a92ec62757b1c5e5de363926a47c34dfa}
+
+
+Obtiene el número de nodos. 
+
+\begin{DoxyReturn}{Devuelve}
+número de nodos del receptor. 
+\end{DoxyReturn}
+
+
+\subsubsection{Documentación de los datos miembro}
+\index{ktree@{ktree}!kvalue@{kvalue}}
+\index{kvalue@{kvalue}!ktree@{ktree}}
+\paragraph[{\texorpdfstring{kvalue}{kvalue}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T, int K = 2$>$ const int {\bf ktree}$<$ T, K $>$\+::kvalue = K\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classktree_a3c639c3ca0ef80277c29ae54d7bd8d41}{}\label{classktree_a3c639c3ca0ef80277c29ae54d7bd8d41}
+
+
+Valor del número de descendientes. Es constante, tomando el valor por defecto de 2, árbol binario. 
+
+
+\begin{DoxyCode}
+\hyperlink{classktree}{ktree<char,5>::kvalue} 
+\end{DoxyCode}
+ 
+
+Definición en la línea 60 del archivo ktree.\+h.
+
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{ktree_8h}{ktree.\+h}\end{DoxyCompactItemize}

@@ -46,6 +46,28 @@ class OrdenDecre {
       }
 };
 
+/** @brief clase OrdenDecre la ordena en orden creciente por la frecuencia
+*/
+class OrdenDecreSt {
+  public:
+     /** @brief compara dos subcadenas por la frecuencia de forma decreciente
+       * @param[in] n: pair a comparar.
+       * @param[in] n2: pair a comparar.
+       * @return true si n tiene mayor frecuencia que n2
+       * @post no modifica el conjunto.
+      */
+      bool operator()(const pair<string,int> & n ,const pair<string,int> & n2) {
+         if (n.second > n2.second)
+            return true;
+         else if (n.second < n2.second)
+            return false;
+         else{
+            return ( n.first.size() <= n2.first.size() );
+         }
+
+      }
+};
+
 class Nmer {
    public:
      typedef unsigned int size_type;

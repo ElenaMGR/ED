@@ -54,7 +54,7 @@ bool Nmer::loadFichero(const string & nombre_fichero){
       // leemos cadena
       getline(fe,cadena,'\n');
       transform(cadena.begin(),cadena.end(),cadena.begin(), ::toupper);
-      sequenceADN(10,cadena);
+      sequenceADN(15,cadena);
       fe.close();
       return true;
    } // else
@@ -303,7 +303,7 @@ void Nmer::recorridoLevel(ktree<pair<char,int>,4>::const_node nodo, int level,se
 
 float Nmer::Distance(const Nmer & x){
    Nmer xc(x);
-   set<pair<string,int>,OrdenDecre > nmX, nmY;
+   set<pair<string,int>,OrdenDecreSt > nmX, nmY;
    set<pair<string,int>,OrdenCre > nmXCre, nmYCre;
    set<pair<string,int>,OrdenCre >::iterator it;
    set<pair<string,int>,OrdenDecre >::iterator itD;
