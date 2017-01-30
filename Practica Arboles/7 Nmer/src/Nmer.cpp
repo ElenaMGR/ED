@@ -302,7 +302,79 @@ void Nmer::recorridoLevel(ktree<pair<char,int>,4>::const_node nodo, int level,se
 }
 
 float Nmer::Distance(const Nmer & x){
+   Nmer xc(x);
+   set<pair<string,int>,OrdenDecre > nmX, nmY;
+   set<pair<string,int>,OrdenCre > nmXCre, nmYCre;
+   set<pair<string,int>,OrdenCre >::iterator it;
+   set<pair<string,int>,OrdenDecre >::iterator itD;
+   unordered_map<string,int> rankingX, rankingY;
+   unordered_map<string,int>::iterator itMap;
+   unordered_map<string,int>::const_iterator got;
+   int cont = 1, maximo, posX, posY;
+   double dist, valor;
 
+   for (unsigned int i = 1; i <= max_long; i++){
+      nmYCre.clear();
+      nmYCre = level(i);
+      it=nmYCre.begin();
+      while(it != nmYCre.end()){
+         nmY.insert(*it);
+         it ++;
+      }
+   }
+
+   for (unsigned int i = 1; i <= xc.max_long; i++){
+      nmXCre.clear();
+      nmXCre = xc.level(i);
+      it=nmXCre.begin();
+      while(it != nmXCre.end()){
+         nmX.insert(*it);
+         it ++;
+      }
+   }
+
+   itD = nmX.begin();
+   while (itD != nmX.end()){
+      rankingX[(*itD).first]=cont;
+      cont++;
+      itD++;
+   }
+   cont=1;
+
+   itD = nmY.begin();
+   while (itD != nmY.end()){
+      rankingY[(*itD).first]=cont;
+      cont++;
+      itD++;
+   }
+
+   //max <- maximo(rankingX.size(),rankingY.size());
+   maximo = max(rankingX.size(),rankingY.size());
+   //dist <- 0;
+   dist=0;
+   //Para cada Nmer n en rankingX {
+   itMap = rankingX.begin();
+   while(itMap != rankingX.end()){
+      //Si (n pertenece a rankingY)
+      got = rankingY.find ((*itMap).first);
+      if (got != rankingY.end()){
+         //posX <- la posicion de n en rankingX
+         posX = (*itMap).second;
+         //posY <- la posicion de n en rankingY;
+         posY = (*got).second;
+         //valor = abs(posX-posY)/max
+         valor = abs(posX-posY)/maximo*1.0;
+      }//} else valor = 1;
+      else{
+         valor = 1;
+      }
+      //dist+=valor;
+      dist+=valor;
+
+      itMap++;
+   }
+
+   return dist/rankingX.size()*1.0; // calculamos el promedio, tomando valores en [0,1]
 }
 
 

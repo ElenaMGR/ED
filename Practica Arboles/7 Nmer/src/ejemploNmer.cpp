@@ -5,7 +5,7 @@
 using namespace std;
 
 int main(){
-   Nmer prueba;
+   Nmer prueba,uno,dos,tres,cuatro,cinco,seis,siete,ocho,nueve,diez;
    prueba.loadSerialized("../datos/cadenaSimple.srl");
    prueba.list_Nmer();
    cout << prueba.size() << " " << prueba.length() << endl;
@@ -70,10 +70,21 @@ int main(){
    }
    cout<<res.size()<<endl;
 
-   cout<<"leemos desde le fichero"<<endl;
-   prueba.loadFichero("../datos/1.txt");
-   //prueba.list_Nmer();
-   //cout << prueba.size() << " " << prueba.length() << endl;
+   cout<<"distancia"<<endl;
+   prueba.Distance(prueba2);
+
+   cout<<"leemos desde le fichero los 10 txt"<<endl;
+   uno.loadFichero("../datos/1.txt");
+   dos.loadFichero("../datos/2.txt");
+   tres.loadFichero("../datos/3.txt");
+   cuatro.loadFichero("../datos/4.txt");
+   cinco.loadFichero("../datos/5.txt");
+   seis.loadFichero("../datos/6.txt");
+   siete.loadFichero("../datos/7.txt");
+   ocho.loadFichero("../datos/8.txt");
+   nueve.loadFichero("../datos/9.txt");
+   diez.loadFichero("../datos/10.txt");
+
 
 
 

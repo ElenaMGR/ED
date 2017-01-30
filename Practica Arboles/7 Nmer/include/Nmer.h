@@ -14,6 +14,7 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <unordered_map>
 
 using namespace std;
 /** @brief clase OrdenCre la ordena en orden creciente por la frecuencia
@@ -147,13 +148,22 @@ class Nmer {
       */
       void recorridoUnion(Nmer arbol2, ktree<pair<char,int>,4>::node nodoArbol1, ktree<pair<char,int>,4>::node nodoArbol2);
 
+      /** @brief Recorre dos árboles
+      */
       bool recorridoInclude(ktree<pair<char,int>,4>::const_node nodoThis, ktree<pair<char,int>,4>::const_node nodoRef) const;
 
+      /** @brief Recorre dos árboles
+      */
       void recorridoRareNmer(ktree<pair<char,int>,4>::const_node nodo, int threshold,set<pair<string,int>,OrdenCre> &resultado, string & subcadena);
 
+      /** @brief Recorre dos árboles
+      */
       void recorridoCommonNmer(ktree<pair<char,int>,4>::const_node nodo, int threshold,set<pair<string,int>,OrdenDecre> &resultado, string & subcadena);
 
+      /** @brief Recorre dos árboles
+      */
       void recorridoLevel(ktree<pair<char,int>,4>::const_node nodo, int level,set<pair<string,int>,OrdenCre> &resultado, string & subcadena);
+
    private:
      ktree<pair<char,int>,4> el_Nmer; // subsecuencias
      unsigned int max_long; // Mayor longitud de la cadena representada, esto es, el nivel máximo del árbol
